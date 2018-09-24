@@ -52,16 +52,13 @@ public class PlayerBehavior : MonoBehaviour
             if (value <= 0)
             {
                 if (this.OnPlayerDie != null)
-                    this.OnPlayerDie.Invoke(this, EventArgs.Empty);
+                    this.OnPlayerDie(this, EventArgs.Empty);
                 // Die code
                 SceneManager.LoadScene("Level0");
             }
-            else
-            {
-                if (this.OnPlayerHealthChanged != null)
-                    this.OnPlayerHealthChanged.Invoke(this, new PlayerHealthChangedEventArgs(value));
-            }
             this.mHealth = value;
+            if (value > 0 && this.OnPlayerHealthChanged != null)
+                this.OnPlayerHealthChanged(this, new PlayerHealthChangedEventArgs(this.mHealth));
         }
     }
     private int mHealth;
@@ -94,7 +91,7 @@ public class PlayerBehavior : MonoBehaviour
     /// </summary>
     public void Start()
     {
-        this.Health = this.MaxHealth;
+        //this.Health = this.MaxHealth;
 	}
 	
 	/// <summary>
@@ -110,6 +107,7 @@ public class PlayerBehavior : MonoBehaviour
     /// </summary>
     public void FixedUpdate()
     {
+        if (this.Health == 0) this.Health = this.MaxHealth;
         this.UpdateMovement();
     }
 
@@ -120,6 +118,7 @@ public class PlayerBehavior : MonoBehaviour
     {
         this.mInputXMovement = Input.GetAxisRaw("Horizontal");
         if (Input.GetButtonDown("Jump")) this.mInputJump = true;
+        if (Input.GetButtonDown("Fire1")) this.Health -= 5;
     }
 
     /// <summary>

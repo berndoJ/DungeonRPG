@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class PlayerHealthBarDisplay : MonoBehaviour
 {
-
     /// <summary>
     /// The player of which the health should be displayed.
     /// </summary>
@@ -19,7 +18,7 @@ public class PlayerHealthBarDisplay : MonoBehaviour
     /// <summary>
     /// Init of this code.
     /// </summary>
-    void Start ()
+    public void Start()
     {
         this.Player.OnPlayerHealthChanged += this.OnPlayerHealthChanged;
 	}
@@ -33,5 +32,4 @@ public class PlayerHealthBarDisplay : MonoBehaviour
     {
         this.HealthBarImage.fillAmount = (float)e.NewHealth / this.Player.MaxHealth;
     }
-
 }

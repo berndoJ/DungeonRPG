@@ -18,9 +18,9 @@ public class PlayerHealthDisplay : MonoBehaviour
 	/// <summary>
     /// Init of this code.
     /// </summary>
-	public void Start ()
+	public void Start()
     {
-        Player.OnPlayerHealthChanged += this.OnPlayerHealthChanged;
+        this.Player.OnPlayerHealthChanged += this.OnPlayerHealthChanged;
 	}
 	
     /// <summary>
@@ -30,6 +30,6 @@ public class PlayerHealthDisplay : MonoBehaviour
     /// <param name="e">The event args</param>
 	private void OnPlayerHealthChanged(object sender, PlayerHealthChangedEventArgs e)
     {
-        HealthDisplayText.text = string.Format("{0} / {1}", e.NewHealth, Player.MaxHealth);
+        this.HealthDisplayText.text = string.Format("{0} / {1}", e.NewHealth, Player.MaxHealth);
     }
 }
