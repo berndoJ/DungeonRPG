@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 535f8e525ff367c4ba67961e201a05ed, type: 3}
+  m_Name: platform_stone
+  m_EditorClassIdentifier: 
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Transform:
+    e00: 1
+    e01: 0
+    e02: 0
+    e03: 0
+    e10: 0
+    e11: 1
+    e12: 0
+    e13: 0
+    e20: 0
+    e21: 0
+    e22: 1
+    e23: 0
+    e30: 0
+    e31: 0
+    e32: 0
+    e33: 1
+  m_InstancedGameObject: {fileID: 0}
+  m_Flags: 1
+  m_ColliderType: 1
+  m_Sprites:
+  - {fileID: 21300000, guid: 9fc6822d24c73684197e74028eb616ee, type: 3}
+  - {fileID: 21300000, guid: 98c17e7b32a403043a0326fdc607ef9e, type: 3}
+  - {fileID: 21300000, guid: dcb765893a19fdb46b1e53a0ac6937c8, type: 3}
+  - {fileID: 21300000, guid: db9600b95ab80a3439876c32ed625bab, type: 3}
+  - {fileID: 21300000, guid: 658be714549e64344a6c112fe554ee41, type: 3}
+  - {fileID: 21300000, guid: 15d8026ae3b4c8d44af0351479af6198, type: 3}
+  - {fileID: 21300000, guid: ea479192df6ab9b4785dd9f7c35c4242, type: 3}
+  - {fileID: 21300000, guid: d73c2473375514c47832725c010d2823, type: 3}
+  - {fileID: 21300000, guid: b22e207fd60fe90489f345853af215bc, type: 3}
+  - {fileID: 21300000, guid: dc3060f12882e4d489c728dfb1be7352, type: 3}
