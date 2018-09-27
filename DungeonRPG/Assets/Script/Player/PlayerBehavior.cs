@@ -13,8 +13,6 @@ public class PlayerBehavior : MonoBehaviour
 
     private readonly float MOVE_SPEED_COEFF = 1F;
 
-    private readonly int PLAYER_FALLING_Y_DEATH = -10;
-
     #endregion
 
     #region General Variables
@@ -33,6 +31,11 @@ public class PlayerBehavior : MonoBehaviour
     /// The character controller script.
     /// </summary>
     public CharacterController2D CharacterController;
+
+    /// <summary>
+    /// The y level under which the player dies (of falling)
+    /// </summary>
+    public int FallDeathLevel = -10;
 
     #endregion
 
@@ -122,7 +125,7 @@ public class PlayerBehavior : MonoBehaviour
     }
 
     /// <summary>
-    /// Updates the movement of the player.
+    /// Updates the movement of the player. This function has to be run out of the physics loop (FixedUpdate loop)
     /// </summary>
     private void UpdateMovement()
     {
@@ -135,7 +138,7 @@ public class PlayerBehavior : MonoBehaviour
         // Reset the jump request bool.
         this.mInputJump = false;
         // Check for falling death
-        if (this.transform.position.y < this.PLAYER_FALLING_Y_DEATH) this.Die();
+        if (this.transform.position.y < this.FallDeathLevel) this.Die();
     }
 
     #region Player Methods
