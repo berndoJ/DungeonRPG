@@ -24,6 +24,18 @@ public class FPSCounter : MonoBehaviour
 	}
 
     /// <summary>
+    /// Frame loop.
+    /// Here the frame loop is used for inputs.
+    /// </summary>
+    public void Update()
+    {
+        if (Input.GetButtonDown("FPS Toggle"))
+        {
+            this.Enabled = !this.Enabled;
+        }
+    }
+
+    /// <summary>
     /// Coroutine for displaying the fps on screen
     /// </summary>
     /// <returns></returns>

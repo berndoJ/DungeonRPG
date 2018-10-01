@@ -48,19 +48,29 @@ public class PlayerBehavior : MonoBehaviour
     public int FallDeathLevel = -10;
 
     /// <summary>
-    /// The regenerated energy per gameloop tick.
+    /// The regenerated energy per gameloop tick. Default: 0.07F
     /// </summary>
-    public float EnergyRegen = 0.15F;
+    public float EnergyRegen = 0.07F;
 
     /// <summary>
-    /// The amount of energy the player looses if he moves.
+    /// The amount of energy the player looses if he moves. Default: 0.15F
     /// </summary>
-    public float PlayerMoveEnergyLoss = 0.16F;
+    public float PlayerMoveEnergyLoss = 0.15F;
 
     /// <summary>
-    /// The loss of energy (in percent, 0F to 100F) the player gets when jumping.
+    /// The loss of energy (in percent, 0F to 100F) the player gets when jumping. Default: 10F
     /// </summary>
-    public float PlayerJumpEnergyLoss = 5F;
+    public float PlayerJumpEnergyLoss = 10F;
+
+    /// <summary>
+    /// Determines the speed of the player if his energy-level is too low. Default: 0.15F
+    /// </summary>
+    public float PlayerDeenergisedMovementReductionCoeff = 0.15F;
+
+    /// <summary>
+    /// Determines the threshold beyond which the player moves slowly because of deenergisement. Default: 10F
+    /// </summary>
+    public float PlayerDeenergisedMovementReductionThreshold = 10F;
 
     #endregion
 
@@ -197,6 +207,10 @@ public class PlayerBehavior : MonoBehaviour
         xMovement *= this.MovementSpeed;
         xMovement *= this.MOVE_SPEED_COEFF;
         xMovement *= Time.fixedDeltaTime;
+        // Movement and energy handling.
+        if (this.Energy < this.PlayerDeenergisedMovementReductionThreshold)
+            xMovement *= this.PlayerDeenergisedMovementReductionCoeff;
+        this.Energy -= Mathf.Abs(this.mInputXMovement) * this.PlayerMoveEnergyLoss;
         // Call the character controller to move the player.
         this.CharacterController.Move(xMovement, false, this.mInputJump);
         // Reset the jump request bool.
@@ -216,14 +230,6 @@ public class PlayerBehavior : MonoBehaviour
     {
         this.Health = 0;
     }
-
-    ///// <summary>
-    ///// Gets invoked when the player lands on ground.
-    ///// </summary>
-    //public void OnPlayerLanding()
-    //{
-    //    this.PlayerAnimator.SetBool("IsJumping", false);
-    //}
 
     #endregion
 }
