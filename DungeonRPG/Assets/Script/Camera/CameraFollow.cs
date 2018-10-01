@@ -53,7 +53,7 @@ public class CameraFollow : MonoBehaviour
 	/// <summary>
     /// Game loop.
     /// </summary>
-	public void Update()
+	public void FixedUpdate()
     {
         Vector3 targetPos = this.CameraTarget.TransformPoint(this.OffsetX, this.OffsetY, -10);
         Vector3 actualCameraPos = Vector3.SmoothDamp(this.transform.position, targetPos, ref this.mCameraVelocity, this.SmoothingCoefficient);

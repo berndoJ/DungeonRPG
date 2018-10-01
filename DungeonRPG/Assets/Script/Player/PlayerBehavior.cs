@@ -18,14 +18,19 @@ public class PlayerBehavior : MonoBehaviour
     #region General Variables
 
     /// <summary>
-    /// The movement speed of the player.
+    /// The movement speed of the player. Default: 10
     /// </summary>
     public int MovementSpeed = 10;
 
     /// <summary>
-    /// The maximum health that a player can have.
+    /// The maximum health that a player can have. Default: 100
     /// </summary>
-    public int MaxHealth = 5;
+    public int MaxHealth = 100;
+
+    /// <summary>
+    /// The name of the player. Default: "David", named after the creator of the game.
+    /// </summary>
+    public string PlayerName = "David";
 
     /// <summary>
     /// The character controller script.
@@ -33,9 +38,29 @@ public class PlayerBehavior : MonoBehaviour
     public CharacterController2D CharacterController;
 
     /// <summary>
-    /// The y level under which the player dies (of falling)
+    /// The animator of the player.
+    /// </summary>
+    public Animator PlayerAnimator;
+
+    /// <summary>
+    /// The y level under which the player dies (of falling) Default: -10
     /// </summary>
     public int FallDeathLevel = -10;
+
+    /// <summary>
+    /// The regenerated energy per gameloop tick.
+    /// </summary>
+    public float EnergyRegen = 0.15F;
+
+    /// <summary>
+    /// The amount of energy the player looses if he moves.
+    /// </summary>
+    public float PlayerMoveEnergyLoss = 0.16F;
+
+    /// <summary>
+    /// The loss of energy (in percent, 0F to 100F) the player gets when jumping.
+    /// </summary>
+    public float PlayerJumpEnergyLoss = 5F;
 
     #endregion
 
@@ -44,7 +69,7 @@ public class PlayerBehavior : MonoBehaviour
     /// <summary>
     /// The current health of the player.
     /// </summary>
-    private int Health
+    public int Health
     {
         get
         {
@@ -59,12 +84,33 @@ public class PlayerBehavior : MonoBehaviour
                 // Die code
                 SceneManager.LoadScene("Level0");
             }
+            if (value > this.MaxHealth) return;
             this.mHealth = value;
             if (value > 0 && this.OnPlayerHealthChanged != null)
                 this.OnPlayerHealthChanged(this, new PlayerHealthChangedEventArgs(this.mHealth));
         }
     }
     private int mHealth;
+
+    /// <summary>
+    /// The energy of the player.
+    /// </summary>
+    public float Energy
+    {
+        get
+        {
+            return this.mEnergy;
+        }
+        set
+        {
+            if (value < 0) value = 0;
+            if (value > 100) value = 100F;
+            this.mEnergy = value;
+            if (this.OnPlayerEnergyChanged != null)
+                this.OnPlayerEnergyChanged(this, new PlayerEnergyChangedEventArgs(this.mEnergy));
+        }
+    }
+    private float mEnergy;
 
     #endregion
 
@@ -86,6 +132,11 @@ public class PlayerBehavior : MonoBehaviour
     /// Gets invoked when the health of the player changed. It does not get invoked when the player dies.
     /// </summary>
     public event EventHandler<PlayerHealthChangedEventArgs> OnPlayerHealthChanged;
+
+    /// <summary>
+    /// Gets invoked when the energy of the player changed.
+    /// </summary>
+    public event EventHandler<PlayerEnergyChangedEventArgs> OnPlayerEnergyChanged;
 
     #endregion
 
@@ -110,7 +161,14 @@ public class PlayerBehavior : MonoBehaviour
     /// </summary>
     public void FixedUpdate()
     {
-        if (this.Health == 0) this.Health = this.MaxHealth;
+        // The player just died / was just spawned in. Set the player variables to their defaults.
+        if (this.Health == 0)
+        {
+            this.Health = this.MaxHealth;
+            this.Energy = 100F;
+        }
+        // Regen energy
+        this.Energy += this.EnergyRegen;
         this.UpdateMovement();
     }
 
@@ -120,7 +178,13 @@ public class PlayerBehavior : MonoBehaviour
     private void UpdateInputs()
     {
         this.mInputXMovement = Input.GetAxisRaw("Horizontal");
-        if (Input.GetButtonDown("Jump")) this.mInputJump = true;
+        this.PlayerAnimator.SetFloat("PlayerSpeed", Mathf.Abs(this.mInputXMovement));
+        if (Input.GetButtonDown("Jump") && this.Energy >= this.PlayerJumpEnergyLoss)
+        {
+            this.mInputJump = true;
+            if (this.CharacterController.m_Grounded)
+                this.Energy -= this.PlayerJumpEnergyLoss;
+        }
         if (Input.GetButtonDown("Fire1")) this.Health -= 5;
     }
 
@@ -139,6 +203,8 @@ public class PlayerBehavior : MonoBehaviour
         this.mInputJump = false;
         // Check for falling death
         if (this.transform.position.y < this.FallDeathLevel) this.Die();
+        // Update the animation
+        this.PlayerAnimator.SetBool("IsJumping", !this.CharacterController.m_Grounded);
     }
 
     #region Player Methods
@@ -150,6 +216,14 @@ public class PlayerBehavior : MonoBehaviour
     {
         this.Health = 0;
     }
+
+    ///// <summary>
+    ///// Gets invoked when the player lands on ground.
+    ///// </summary>
+    //public void OnPlayerLanding()
+    //{
+    //    this.PlayerAnimator.SetBool("IsJumping", false);
+    //}
 
     #endregion
 }
@@ -171,5 +245,25 @@ public class PlayerHealthChangedEventArgs : EventArgs
     public PlayerHealthChangedEventArgs(int newHealth)
     {
         this.NewHealth = newHealth;
+    }
+}
+
+public class PlayerEnergyChangedEventArgs : EventArgs
+{
+    /// <summary>
+    /// The new energy level of the player.
+    /// </summary>
+    public float NewEnergy
+    {
+        get; private set;
+    }
+
+    /// <summary>
+    /// Creates a new instance of this class.
+    /// </summary>
+    /// <param name="newEnergy">The new energy level of the player</param>
+    public PlayerEnergyChangedEventArgs(float newEnergy)
+    {
+        this.NewEnergy = newEnergy;
     }
 }
