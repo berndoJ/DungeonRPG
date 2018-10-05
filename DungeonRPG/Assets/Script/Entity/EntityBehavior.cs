@@ -3,23 +3,51 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-/// <summary>
-/// Base class for entities.
-/// </summary>
-public class EntityBehavior : MonoBehaviour
+namespace DungeonRPG.Entity
 {
-    public int Health
+    /// <summary>
+    /// Base class for entities.
+    /// </summary>
+    public class EntityBehavior : MonoBehaviour
     {
-        get
-        {
-            return this.mHealth;
-        }
-        set
-        {
-            this.mHealth = value;
-        }
-    }
-    private int mHealth;
+        #region Property Fields
 
-    
+        /// <summary>
+        /// Maximum health of the entity.
+        /// Default: 20
+        /// </summary>
+        public int MaxHealth = 20;
+
+        /// <summary>
+        /// Base attack damage of the entity.
+        /// Default: 5
+        /// </summary>
+        public int BaseDamage = 5;
+
+        #endregion
+
+        #region Events
+
+
+
+        #endregion
+
+        /// <summary>
+        /// The current health of the entity.
+        /// </summary>
+        public int Health
+        {
+            get
+            {
+                return this.mHealth;
+            }
+            set
+            {
+                this.mHealth = value;
+            }
+        }
+        private int mHealth;
+    }
 }
+
+

@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// Entity AI base class
-/// </summary>
-public class EntityAI : MonoBehaviour
+namespace DungeonRPG.Entity
 {
-    
+    /// <summary>
+    /// Entity AI base class
+    /// </summary>
+    public class EntityAI : MonoBehaviour
+    {
+
+    }
 }
