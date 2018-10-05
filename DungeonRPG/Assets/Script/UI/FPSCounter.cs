@@ -20,6 +20,7 @@ public class FPSCounter : MonoBehaviour
     /// </summary>
     public void Start()
     {
+        this.FPSCounterLabel.enabled = false; // Default value is false : the FPS counter is not shown.
         this.StartCoroutine("UpdateFPSCounter");
 	}
 
@@ -31,7 +32,7 @@ public class FPSCounter : MonoBehaviour
     {
         if (Input.GetButtonDown("FPS Toggle"))
         {
-            this.Enabled = !this.Enabled;
+            this.FPSCounterLabel.enabled = !this.FPSCounterLabel.enabled;
         }
     }
 

@@ -95,9 +95,13 @@ public class PlayerBehavior : MonoBehaviour
                 SceneManager.LoadScene("Level0");
             }
             if (value > this.MaxHealth) return;
+            bool damageFlag = (value < this.mHealth);
+            int damage = this.mHealth - value;
             this.mHealth = value;
             if (value > 0 && this.OnPlayerHealthChanged != null)
                 this.OnPlayerHealthChanged(this, new PlayerHealthChangedEventArgs(this.mHealth));
+            if (value > 0 && damageFlag && this.OnPlayerTakeDamage != null)
+                this.OnPlayerTakeDamage(this, new PlayerTakeDamageEventArgs(damage, this.mHealth));
         }
     }
     private int mHealth;
@@ -147,6 +151,11 @@ public class PlayerBehavior : MonoBehaviour
     /// Gets invoked when the energy of the player changed.
     /// </summary>
     public event EventHandler<PlayerEnergyChangedEventArgs> OnPlayerEnergyChanged;
+
+    /// <summary>
+    /// Gets invoked when the player takes damage.
+    /// </summary>
+    public event EventHandler<PlayerTakeDamageEventArgs> OnPlayerTakeDamage;
 
     #endregion
 
@@ -271,5 +280,26 @@ public class PlayerEnergyChangedEventArgs : EventArgs
     public PlayerEnergyChangedEventArgs(float newEnergy)
     {
         this.NewEnergy = newEnergy;
+    }
+}
+
+public class PlayerTakeDamageEventArgs : PlayerHealthChangedEventArgs
+{
+    /// <summary>
+    /// The amount of damage dealt to the player.
+    /// </summary>
+    public int Damage
+    {
+        get; private set;
+    }
+
+    /// <summary>
+    /// Creates a new instance of this class.
+    /// </summary>
+    /// <param name="damage">The damage dealt to the player.</param>
+    /// <param name="newHealth">The new health of the player.</param>
+    public PlayerTakeDamageEventArgs(int damage, int newHealth) : base (newHealth)
+    {
+        this.Damage = damage;
     }
 }
