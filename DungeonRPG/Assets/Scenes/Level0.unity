@@ -194,7 +194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85cfb5e48b446ce4794804186ae35d4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 731967366}
+  Player: {fileID: 731967371}
   HealthBarImage: {fileID: 121154492}
 --- !u!1 &191937235
 GameObject:
@@ -341,7 +341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e18311944a53f67408f3ddedaecd28da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 731967366}
+  Player: {fileID: 731967371}
   EnergyDisplayText: {fileID: 272396936}
 --- !u!114 &272396936
 MonoBehaviour:
@@ -616,7 +616,7 @@ Tilemap:
       - {fileID: 21300000, guid: 99e90549bb43b8048a4cc4b8e015adb6, type: 3}
       - {fileID: 21300000, guid: e2495832eb59fab448512af196eff5a8, type: 3}
       - {fileID: 21300000, guid: acb36976f619449428688bb29a9b21b6, type: 3}
-      m_AnimationSpeed: 5.23476
+      m_AnimationSpeed: 5.535015
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 12, y: -3, z: 0}
@@ -626,7 +626,7 @@ Tilemap:
       - {fileID: 21300000, guid: 99e90549bb43b8048a4cc4b8e015adb6, type: 3}
       - {fileID: 21300000, guid: e2495832eb59fab448512af196eff5a8, type: 3}
       - {fileID: 21300000, guid: acb36976f619449428688bb29a9b21b6, type: 3}
-      m_AnimationSpeed: 5.1447105
+      m_AnimationSpeed: 5.9908624
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 57, y: -3, z: 0}
@@ -636,7 +636,7 @@ Tilemap:
       - {fileID: 21300000, guid: 99e90549bb43b8048a4cc4b8e015adb6, type: 3}
       - {fileID: 21300000, guid: e2495832eb59fab448512af196eff5a8, type: 3}
       - {fileID: 21300000, guid: acb36976f619449428688bb29a9b21b6, type: 3}
-      m_AnimationSpeed: 5.7583456
+      m_AnimationSpeed: 5.981746
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 62, y: -3, z: 0}
@@ -646,7 +646,7 @@ Tilemap:
       - {fileID: 21300000, guid: 99e90549bb43b8048a4cc4b8e015adb6, type: 3}
       - {fileID: 21300000, guid: e2495832eb59fab448512af196eff5a8, type: 3}
       - {fileID: 21300000, guid: acb36976f619449428688bb29a9b21b6, type: 3}
-      m_AnimationSpeed: 5.9029646
+      m_AnimationSpeed: 5.008792
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 68, y: -3, z: 0}
@@ -656,7 +656,7 @@ Tilemap:
       - {fileID: 21300000, guid: 99e90549bb43b8048a4cc4b8e015adb6, type: 3}
       - {fileID: 21300000, guid: e2495832eb59fab448512af196eff5a8, type: 3}
       - {fileID: 21300000, guid: acb36976f619449428688bb29a9b21b6, type: 3}
-      m_AnimationSpeed: 5.735167
+      m_AnimationSpeed: 5.602584
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -7, y: -2, z: 0}
@@ -666,7 +666,7 @@ Tilemap:
       - {fileID: 21300000, guid: 99e90549bb43b8048a4cc4b8e015adb6, type: 3}
       - {fileID: 21300000, guid: e2495832eb59fab448512af196eff5a8, type: 3}
       - {fileID: 21300000, guid: acb36976f619449428688bb29a9b21b6, type: 3}
-      m_AnimationSpeed: 5.3582
+      m_AnimationSpeed: 5.7583456
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -2, y: -2, z: 0}
@@ -676,7 +676,7 @@ Tilemap:
       - {fileID: 21300000, guid: 99e90549bb43b8048a4cc4b8e015adb6, type: 3}
       - {fileID: 21300000, guid: e2495832eb59fab448512af196eff5a8, type: 3}
       - {fileID: 21300000, guid: acb36976f619449428688bb29a9b21b6, type: 3}
-      m_AnimationSpeed: 5.2488174
+      m_AnimationSpeed: 5.6551495
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 3, y: -2, z: 0}
@@ -686,7 +686,7 @@ Tilemap:
       - {fileID: 21300000, guid: 99e90549bb43b8048a4cc4b8e015adb6, type: 3}
       - {fileID: 21300000, guid: e2495832eb59fab448512af196eff5a8, type: 3}
       - {fileID: 21300000, guid: acb36976f619449428688bb29a9b21b6, type: 3}
-      m_AnimationSpeed: 5.5999956
+      m_AnimationSpeed: 5.489809
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 20, y: -2, z: 0}
@@ -696,7 +696,7 @@ Tilemap:
       - {fileID: 21300000, guid: 99e90549bb43b8048a4cc4b8e015adb6, type: 3}
       - {fileID: 21300000, guid: e2495832eb59fab448512af196eff5a8, type: 3}
       - {fileID: 21300000, guid: acb36976f619449428688bb29a9b21b6, type: 3}
-      m_AnimationSpeed: 5.7835836
+      m_AnimationSpeed: 5.3007817
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 26, y: -2, z: 0}
@@ -706,7 +706,7 @@ Tilemap:
       - {fileID: 21300000, guid: 99e90549bb43b8048a4cc4b8e015adb6, type: 3}
       - {fileID: 21300000, guid: e2495832eb59fab448512af196eff5a8, type: 3}
       - {fileID: 21300000, guid: acb36976f619449428688bb29a9b21b6, type: 3}
-      m_AnimationSpeed: 5.8324184
+      m_AnimationSpeed: 5.0455794
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 31, y: -2, z: 0}
@@ -716,7 +716,7 @@ Tilemap:
       - {fileID: 21300000, guid: 99e90549bb43b8048a4cc4b8e015adb6, type: 3}
       - {fileID: 21300000, guid: e2495832eb59fab448512af196eff5a8, type: 3}
       - {fileID: 21300000, guid: acb36976f619449428688bb29a9b21b6, type: 3}
-      m_AnimationSpeed: 5.046956
+      m_AnimationSpeed: 5.6871862
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 35, y: -2, z: 0}
@@ -726,7 +726,7 @@ Tilemap:
       - {fileID: 21300000, guid: 99e90549bb43b8048a4cc4b8e015adb6, type: 3}
       - {fileID: 21300000, guid: e2495832eb59fab448512af196eff5a8, type: 3}
       - {fileID: 21300000, guid: acb36976f619449428688bb29a9b21b6, type: 3}
-      m_AnimationSpeed: 5.099188
+      m_AnimationSpeed: 5.2574806
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 39, y: -2, z: 0}
@@ -736,7 +736,7 @@ Tilemap:
       - {fileID: 21300000, guid: 99e90549bb43b8048a4cc4b8e015adb6, type: 3}
       - {fileID: 21300000, guid: e2495832eb59fab448512af196eff5a8, type: 3}
       - {fileID: 21300000, guid: acb36976f619449428688bb29a9b21b6, type: 3}
-      m_AnimationSpeed: 5.6701803
+      m_AnimationSpeed: 5.5064745
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 50, y: -1, z: 0}
@@ -746,7 +746,7 @@ Tilemap:
       - {fileID: 21300000, guid: 99e90549bb43b8048a4cc4b8e015adb6, type: 3}
       - {fileID: 21300000, guid: e2495832eb59fab448512af196eff5a8, type: 3}
       - {fileID: 21300000, guid: acb36976f619449428688bb29a9b21b6, type: 3}
-      m_AnimationSpeed: 5.209285
+      m_AnimationSpeed: 5.9750767
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 18, y: 0, z: 0}
@@ -756,7 +756,7 @@ Tilemap:
       - {fileID: 21300000, guid: 99e90549bb43b8048a4cc4b8e015adb6, type: 3}
       - {fileID: 21300000, guid: e2495832eb59fab448512af196eff5a8, type: 3}
       - {fileID: 21300000, guid: acb36976f619449428688bb29a9b21b6, type: 3}
-      m_AnimationSpeed: 5.1607103
+      m_AnimationSpeed: 5.725992
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 8, y: 1, z: 0}
@@ -766,7 +766,7 @@ Tilemap:
       - {fileID: 21300000, guid: 99e90549bb43b8048a4cc4b8e015adb6, type: 3}
       - {fileID: 21300000, guid: e2495832eb59fab448512af196eff5a8, type: 3}
       - {fileID: 21300000, guid: acb36976f619449428688bb29a9b21b6, type: 3}
-      m_AnimationSpeed: 5.766741
+      m_AnimationSpeed: 5.8600845
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   m_TileAssetArray:
@@ -1906,11 +1906,11 @@ GameObject:
   - component: {fileID: 731967365}
   - component: {fileID: 731967364}
   - component: {fileID: 731967362}
-  - component: {fileID: 731967366}
-  - component: {fileID: 731967367}
   - component: {fileID: 731967368}
   - component: {fileID: 731967363}
-  - component: {fileID: 731967369}
+  - component: {fileID: 731967371}
+  - component: {fileID: 731967370}
+  - component: {fileID: 731967366}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -2023,63 +2023,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 731967361}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1136d2f654a58024e9aae09b1afdd91f, type: 3}
+  m_Script: {fileID: 11500000, guid: 31db85a037dea6a41ba7e27bc2b47cd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 25
-  MaxHealth: 100
-  PlayerName: Dave
-  CharacterController: {fileID: 731967367}
-  PlayerAnimator: {fileID: 731967368}
-  FallDeathLevel: -10
-  EnergyRegen: 0.1
-  PlayerMoveEnergyLoss: 0.15
-  PlayerJumpEnergyLoss: 10
-  PlayerDeenergisedMovementReductionCoeff: 0.15
-  PlayerDeenergisedMovementReductionThreshold: 10
---- !u!114 &731967367
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 731967361}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abc925b059910e847ac89e12e060b0b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_JumpForce: 600
-  m_CrouchSpeed: 0.202
-  m_MovementSmoothing: 0.12
-  m_AirControl: 1
-  m_WhatIsGround:
-    serializedVersion: 2
-    m_Bits: 512
-  m_GroundCheck: {fileID: 1242075920}
-  m_CeilingCheck: {fileID: 1506045886}
-  m_CrouchDisableCollider: {fileID: 0}
-  m_Grounded: 0
-  OnLandEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 731967366}
-        m_MethodName: OnPlayerLanding
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  OnCrouchEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: CharacterController2D+BoolEvent, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+  PlayerRenderer: {fileID: 731967364}
+  Player: {fileID: 731967371}
+  TintColor: {r: 0.8301887, g: 0.41901034, b: 0.41901034, a: 1}
 --- !u!95 &731967368
 Animator:
   serializedVersion: 3
@@ -2098,7 +2047,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &731967369
+--- !u!114 &731967370
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2106,12 +2055,35 @@ MonoBehaviour:
   m_GameObject: {fileID: 731967361}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4ffc23906d7fa7409f3ac417bc28bc0, type: 3}
+  m_Script: {fileID: 11500000, guid: 502871b06bbb6394c8bd0f6fa2f32db1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerRenderer: {fileID: 731967364}
-  Player: {fileID: 731967366}
-  TintColor: {r: 1, g: 0.5613208, b: 0.5613208, a: 1}
+  MovementSpeed: 10
+  DeathHeightLevel: -10
+  JumpForce: 5
+  MovementSmoothing: 0.1
+  GroundCheckTransform: {fileID: 1242075920}
+  GroundLayerMask:
+    serializedVersion: 2
+    m_Bits: 512
+  PlayerRigidbody: {fileID: 731967362}
+  PlayerAnimator: {fileID: 731967368}
+  Player: {fileID: 731967371}
+--- !u!114 &731967371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 731967361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b028e00975a765e43882b31ba786a414, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 100
+  AI: {fileID: 731967370}
+  PlayerName: Player
+  MaxEnergy: 100
 --- !u!1 &733878017
 GameObject:
   m_ObjectHideFlags: 0
@@ -2199,7 +2171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53b675f440d992546be04fb129bf0128, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 731967366}
+  Player: {fileID: 731967371}
   PlayerNameText: {fileID: 733878019}
 --- !u!1 &823896395
 GameObject:
@@ -21723,7 +21695,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ede30c3269395af4296079df0436c2c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 731967366}
+  Player: {fileID: 731967371}
   HealthBarImage: {fileID: 918641418}
 --- !u!1 &1034752218
 GameObject:
@@ -22046,7 +22018,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 701a9df18c7bb534f9d71cefa62e6929, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 731967366}
+  Player: {fileID: 731967371}
   DamageDisplayText: {fileID: 1165590983}
 --- !u!1 &1197528075
 GameObject:
@@ -139548,7 +139520,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerCollider: {fileID: 731967363}
-  Player: {fileID: 731967366}
+  Player: {fileID: 0}
   EnterDamageDealt: 0
   ContinousDamageDealt: 3
   ExitDamageDealt: 0
@@ -139812,7 +139784,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0910eb4d76b4d124fab19419e61665e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 731967366}
+  Player: {fileID: 731967371}
   HealthDisplayText: {fileID: 2019451704}
 --- !u!1 &2085286244
 GameObject:

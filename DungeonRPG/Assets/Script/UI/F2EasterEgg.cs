@@ -3,29 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class F2EasterEgg : MonoBehaviour
+namespace DungeonRPG.UI
 {
-    /// <summary>
-    /// Text of the easter egg.
-    /// </summary>
-    public Text F2EasterEggText;
-	
-    /// <summary>
-    /// Init of this code.
-    /// </summary>
-    public void Start()
+    public class F2EasterEgg : MonoBehaviour
     {
-        this.F2EasterEggText.enabled = false;
-    }
+        /// <summary>
+        /// Text of the easter egg.
+        /// </summary>
+        public Text F2EasterEggText;
 
-	/// <summary>
-    /// Frame loop.
-    /// </summary>
-	void Update ()
-    {
-		if (Input.GetButtonDown("Whats here"))
+        /// <summary>
+        /// Init of this code.
+        /// </summary>
+        private void Awake()
         {
-            this.F2EasterEggText.enabled = !this.F2EasterEggText.enabled;
+            this.F2EasterEggText.enabled = false;
         }
-	}
+
+        /// <summary>
+        /// Frame loop.
+        /// </summary>
+        private void Update()
+        {
+            if (Input.GetButtonDown("Whats here"))
+            {
+                this.F2EasterEggText.enabled = !this.F2EasterEggText.enabled;
+            }
+        }
+    }
 }

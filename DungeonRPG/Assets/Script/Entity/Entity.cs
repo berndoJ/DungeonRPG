@@ -19,7 +19,14 @@ namespace DungeonRPG.Entity
         /// Maximum health of the entity.
         /// Default: 20
         /// </summary>
+        [Tooltip("Maximum health of the entity.")]
         public int MaxHealth = 20;
+
+        /// <summary>
+        /// The AI of the entity.
+        /// </summary>
+        [Tooltip("The AI of the entity.")]
+        public EntityAI AI;
 
         #endregion
 
@@ -104,12 +111,12 @@ namespace DungeonRPG.Entity
         }
 
         /// <summary>
-        /// Teleports the entity to the given position
+        /// Teleports the entity to the given position.
         /// </summary>
-        /// <param name="position">The position to teleport the entitiy to</param>
+        /// <param name="position">The position to teleport the entitiy to.</param>
         public void TeleportTo(Vector3 position)
         {
-
+            this.AI.SetTransformPosition(position);
         }
 
         #endregion

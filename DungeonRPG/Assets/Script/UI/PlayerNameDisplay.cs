@@ -3,23 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerNameDisplay : MonoBehaviour
+using DungeonRPG.Entity;
+
+namespace DungeonRPG.UI
 {
-    /// <summary>
-    /// The player of which the name should be displayed.
-    /// </summary>
-    public PlayerBehavior Player;
-
-    /// <summary>
-    /// The UI text where the name should be dispalyed.
-    /// </summary>
-    public Text PlayerNameText;
-
-	/// <summary>
-    /// Init of this code.
-    /// </summary>
-	void Start ()
+    public class PlayerNameDisplay : MonoBehaviour
     {
-        this.PlayerNameText.text = this.Player.PlayerName;
-	}
+        /// <summary>
+        /// The player of which the name should be displayed.
+        /// </summary>
+        public Player Player;
+
+        /// <summary>
+        /// The UI text where the name should be dispalyed.
+        /// </summary>
+        public Text PlayerNameText;
+
+        /// <summary>
+        /// Init of this code.
+        /// </summary>
+        void Start()
+        {
+            this.PlayerNameText.text = this.Player.PlayerName;
+        }
+    }
 }

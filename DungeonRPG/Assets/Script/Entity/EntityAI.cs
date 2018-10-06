@@ -9,6 +9,9 @@ namespace DungeonRPG.Entity
     /// </summary>
     public class EntityAI : MonoBehaviour
     {
+        public void SetTransformPosition(Vector3 position)
+        {
 
+        }
     }
 }

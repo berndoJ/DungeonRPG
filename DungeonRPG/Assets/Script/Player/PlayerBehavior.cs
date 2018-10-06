@@ -120,8 +120,8 @@ public class PlayerBehavior : MonoBehaviour
             if (value < 0) value = 0;
             if (value > 100) value = 100F;
             this.mEnergy = value;
-            if (this.OnPlayerEnergyChanged != null)
-                this.OnPlayerEnergyChanged(this, new PlayerEnergyChangedEventArgs(this.mEnergy));
+            //if (this.OnPlayerEnergyChanged != null)
+            //    this.OnPlayerEnergyChanged(this, new PlayerEnergyChangedEventArgs(this.mEnergy));
         }
     }
     private float mEnergy;
@@ -150,7 +150,7 @@ public class PlayerBehavior : MonoBehaviour
     /// <summary>
     /// Gets invoked when the energy of the player changed.
     /// </summary>
-    public event EventHandler<PlayerEnergyChangedEventArgs> OnPlayerEnergyChanged;
+    //public event EventHandler<PlayerEnergyChangedEventArgs2> OnPlayerEnergyChanged;
 
     /// <summary>
     /// Gets invoked when the player takes damage.
@@ -263,7 +263,7 @@ public class PlayerHealthChangedEventArgs : EventArgs
     }
 }
 
-public class PlayerEnergyChangedEventArgs : EventArgs
+public class PlayerEnergyChangedEventArgs2 : EventArgs
 {
     /// <summary>
     /// The new energy level of the player.
@@ -277,7 +277,7 @@ public class PlayerEnergyChangedEventArgs : EventArgs
     /// Creates a new instance of this class.
     /// </summary>
     /// <param name="newEnergy">The new energy level of the player</param>
-    public PlayerEnergyChangedEventArgs(float newEnergy)
+    public PlayerEnergyChangedEventArgs2(float newEnergy)
     {
         this.NewEnergy = newEnergy;
     }
