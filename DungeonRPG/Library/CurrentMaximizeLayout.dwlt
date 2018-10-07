@@ -23,7 +23,7 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 492}
   m_MaxSize: {x: 14004, y: 14042}
   vertical: 0
-  controlID: 2431
+  controlID: 7977
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -126,7 +126,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 2432
+  controlID: 7952
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -150,7 +150,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 221}
   m_MaxSize: {x: 8006, y: 4021}
   vertical: 0
-  controlID: 2433
+  controlID: 7953
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -203,9 +203,9 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: c40f0000
-    m_LastClickedID: 4036
-    m_ExpandedIDs: e6fbffff00000000a60f0000d60f0000
+    m_SelectedIDs: 
+    m_LastClickedID: 0
+    m_ExpandedIDs: 7873ffffe6fbffff00000000ca100000e8100000fa10000008110000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -221,7 +221,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 0
-      m_ClientGUIView: {fileID: 0}
+      m_ClientGUIView: {fileID: 5}
     m_SearchString: 
   m_ExpandedScenes:
   - Level0
@@ -288,9 +288,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 34.55175, y: 0.80332994, z: -0.125}
+    m_Target: {x: -4.7305055, y: -2.4479554, z: -0.030293215}
     speed: 2
-    m_Value: {x: 34.55175, y: 0.80332994, z: -0.125}
+    m_Value: {x: -4.7305055, y: -2.4479554, z: -0.030293215}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -314,22 +314,22 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
     zGrid:
-      m_Target: 1
+      m_Target: 0
       speed: 2
-      m_Value: 1
+      m_Value: 0
   m_Rotation:
     m_Target: {x: 0, y: 0, z: 0, w: 1}
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 48.512325
+    m_Target: 12.267841
     speed: 2
-    m_Value: 48.512325
+    m_Value: 12.267841
   m_Ortho:
     m_Target: 1
     speed: 2
     m_Value: 1
-  m_ShowGlobalGrid: 1
+  m_ShowGlobalGrid: 0
   m_LastSceneViewRotation: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
   m_LastSceneViewOrtho: 0
   m_ReplacementShader: {fileID: 0}
@@ -451,20 +451,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Textures/GUI
+    - Assets/Textures
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Textures/GUI
+  - Assets/Textures
   m_LastFoldersGridSize: -1
   m_LastProjectPath: E:\Coding\Unity Games\DungeonRPG\DungeonRPG
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 269}
-    m_SelectedIDs: 0a0a0000
-    m_LastClickedID: 2570
-    m_ExpandedIDs: 00000000aa090000ec0900000e0a00008a0b0000040c00000a0c0000fe0d0000180e0000640e0000b00e0000280f00002a0f00004e0f000000ca9a3b
+    scrollPos: {x: 0, y: 141}
+    m_SelectedIDs: 020f0000
+    m_LastClickedID: 3842
+    m_ExpandedIDs: 00000000aa090000f2090000260a0000060c0000880c0000920c0000460e0000e00e0000020f00005c0f0000481000004a10000072100000b232000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -492,7 +492,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000aa090000ec0900000e0a00008a0b0000040c00000a0c0000fe0d0000180e0000640e0000b00e0000280f00002a0f00004e0f000000ca9a3b
+    m_ExpandedIDs: 00000000aa090000f2090000260a0000060c0000880c0000920c0000460e0000e00e0000020f00005c0f0000481000004a10000072100000b232000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -517,10 +517,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: c40f0000
-    m_LastClickedInstanceID: 4036
-    m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c6230000ea31000014320000f23100001c32000010320000fc310000
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
+    m_HadKeyboardFocusLastEvent: 0
+    m_ExpandedInstanceIDs: c6230000ea31000014320000f23100001c32000010320000fc3100008e0c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -536,7 +536,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 11}
+      m_ClientGUIView: {fileID: 14}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
@@ -660,5 +660,5 @@ MonoBehaviour:
     m_CachedPref: -50
     m_ControlHash: 510661707
     m_PrefName: Preview_TilemapBrushInspector
-  m_Palette: {fileID: 1935326051045888, guid: 55a5a14de92458746a181ad0eaffc3ea, type: 2}
+  m_Palette: {fileID: 1317933687036008, guid: a192bb2263b747b448190c407695b495, type: 2}
   m_Target: {fileID: 0}
