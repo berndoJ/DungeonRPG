@@ -29,6 +29,12 @@ namespace DungeonRPG.Entity
         [Tooltip("The maximum energy level of the player.")]
         public float MaxEnergy = 100F;
 
+        /// <summary>
+        /// The AI of the player.
+        /// </summary>
+        [Tooltip("The AI of the player.")]
+        public new PlayerAI AI;
+
         #endregion
 
         #region Events

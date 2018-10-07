@@ -73,12 +73,6 @@ namespace DungeonRPG.Entity
         public LayerMask GroundLayerMask;
 
         /// <summary>
-        /// The rigidbody of the player.
-        /// </summary>
-        [Tooltip("The rigidbody of the player.")]
-        public Rigidbody2D PlayerRigidbody;
-
-        /// <summary>
         /// The animator of the player.
         /// </summary>
         [Tooltip("The animator of the player.")]
@@ -108,64 +102,6 @@ namespace DungeonRPG.Entity
         /// Gets invoked when the player lands on ground.
         /// </summary>
         public event EventHandler<PlayerLandEventArgs> OnPlayerLand;
-
-        #endregion
-
-        #region Properties
-
-        /// <summary>
-        /// Coefficient for controlling movement speed.
-        /// </summary>
-        public float MovementSpeedCoefficient
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// Value for controlling if the player can move.
-        /// </summary>
-        public bool CanMove
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// Coefficient for controlling jump force.
-        /// </summary>
-        public float JumpForceCoefficient
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// Value for controlling if the player can jump.
-        /// </summary>
-        public bool CanJump
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// Value indicating if the player is currently on the ground.
-        /// </summary>
-        public bool IsOnGround
-        {
-            get;
-            private set;
-        }
-
-        /// <summary>
-        /// The looking direction of the player.
-        /// </summary>
-        public PlayerLookingDirection LookingDirection
-        {
-            get;
-            private set;
-        }
 
         #endregion
 
@@ -244,7 +180,7 @@ namespace DungeonRPG.Entity
                 this.mInputButtonJump = true;
 
             if (Input.GetButtonDown("Fire1"))
-                this.Player.Health -= 5;
+                this.Player.DamageGeneric(5);
         }
 
         /// <summary>
@@ -259,13 +195,13 @@ namespace DungeonRPG.Entity
                 float xMovement = this.mInputHorizontalMovement;
                 xMovement *= (this.MovementSpeed * this.MovementSpeedCoefficient * Time.deltaTime);
                 // Apply movement to the rigidbody of the player.
-                Vector3 targetVelocity = new Vector2(xMovement * this.MOVEMENT_X_COEFFICIENT, this.PlayerRigidbody.velocity.y);
-                this.PlayerRigidbody.velocity = Vector3.SmoothDamp(this.PlayerRigidbody.velocity, targetVelocity, ref this.mCurrentPlayerVelocity, this.MovementSmoothing);
+                Vector3 targetVelocity = new Vector2(xMovement * this.MOVEMENT_X_COEFFICIENT, this.EntityRigidbody.velocity.y);
+                this.EntityRigidbody.velocity = Vector3.SmoothDamp(this.EntityRigidbody.velocity, targetVelocity, ref this.mCurrentPlayerVelocity, this.MovementSmoothing);
                 // Flip the player if necessary
-                if (xMovement > 0 && this.LookingDirection == PlayerLookingDirection.NEGATIVE_X)
-                    this.FlipPlayerLookingDirection();
-                else if (xMovement < 0 && this.LookingDirection == PlayerLookingDirection.POSITIVE_X)
-                    this.FlipPlayerLookingDirection();
+                if (xMovement > 0 && this.LookingDirection == EntityLookingDirection.NEGATIVE_X)
+                    this.FlipEntityLookingDirection();
+                else if (xMovement < 0 && this.LookingDirection == EntityLookingDirection.POSITIVE_X)
+                    this.FlipEntityLookingDirection();
                 // Invoke OnPlayerMove
                 if (this.OnPlayerMove != null)
                     this.OnPlayerMove(this, new PlayerMoveEventArgs(xMovement));
@@ -274,13 +210,13 @@ namespace DungeonRPG.Entity
             if (this.CanJump && this.IsOnGround && this.mInputButtonJump)
             {
                 this.mInputButtonJump = false;
-                this.PlayerRigidbody.AddForce(new Vector2(0F, this.JumpForce * this.JUMP_COEFFICIENT));
+                this.EntityRigidbody.AddForce(new Vector2(0F, this.JumpForce * this.JUMP_COEFFICIENT));
                 // Invoke OnJumpEvent
                 if (this.OnPlayerJump != null)
                     this.OnPlayerJump(this, new PlayerJumpEventArgs());
             }
             // Check for falling death
-            if (this.PlayerRigidbody.position.y < this.DeathHeightLevel)
+            if (this.EntityRigidbody.position.y < this.DeathHeightLevel)
                 this.Player.Kill();
         }
 
@@ -304,18 +240,18 @@ namespace DungeonRPG.Entity
         /// <summary>
         /// Flips the player's looking direction.
         /// </summary>
-        private void FlipPlayerLookingDirection()
+        private void FlipEntityLookingDirection()
         {
             switch (this.LookingDirection)
             {
-                case PlayerLookingDirection.NEGATIVE_X:
-                    this.LookingDirection = PlayerLookingDirection.POSITIVE_X;
+                case EntityLookingDirection.NEGATIVE_X:
+                    this.LookingDirection = EntityLookingDirection.POSITIVE_X;
                     break;
-                case PlayerLookingDirection.POSITIVE_X:
-                    this.LookingDirection = PlayerLookingDirection.NEGATIVE_X;
+                case EntityLookingDirection.POSITIVE_X:
+                    this.LookingDirection = EntityLookingDirection.NEGATIVE_X;
                     break;
                 default:
-                    this.LookingDirection = PlayerLookingDirection.POSITIVE_X;
+                    this.LookingDirection = EntityLookingDirection.POSITIVE_X;
                     break;
             }
             Vector3 scale = this.transform.localScale;

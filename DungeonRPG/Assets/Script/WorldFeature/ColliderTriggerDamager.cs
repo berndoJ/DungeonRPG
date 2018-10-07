@@ -2,66 +2,71 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ColliderTriggerDamager : MonoBehaviour
+using DungeonRPG.Entity;
+
+namespace DungeonRPG.WorldFeature
 {
-    /// <summary>
-    /// The collider of the player.
-    /// </summary>
-    public Collider2D PlayerCollider;
-
-    /// <summary>
-    /// The player.
-    /// </summary>
-    public PlayerBehavior Player;
-
-    /// <summary>
-    /// The damage to be dealt to the player upon entering the collider.
-    /// </summary>
-    public int EnterDamageDealt;
-
-    /// <summary>
-    /// The damage to be dealt to the player when staying in the collider.
-    /// </summary>
-    public int ContinousDamageDealt;
-
-    /// <summary>
-    /// The damage to be dealt to the player upon exiting the collider.
-    /// </summary>
-    public int ExitDamageDealt;
-
-    /// <summary>
-    /// Event that gets triggered when some rigidbody enters the collider.
-    /// </summary>
-    /// <param name="triggerCollider">The collider of the object that entered the collider and triggered it.</param>
-    public void OnTriggerEnter2D(Collider2D triggerCollider)
+    public class ColliderTriggerDamager : MonoBehaviour
     {
-        if (triggerCollider == this.PlayerCollider)
+        /// <summary>
+        /// The collider of the player.
+        /// </summary>
+        public Collider2D PlayerCollider;
+
+        /// <summary>
+        /// The player.
+        /// </summary>
+        public Player Player;
+
+        /// <summary>
+        /// The damage to be dealt to the player upon entering the collider.
+        /// </summary>
+        public int EnterDamageDealt;
+
+        /// <summary>
+        /// The damage to be dealt to the player when staying in the collider.
+        /// </summary>
+        public int ContinousDamageDealt;
+
+        /// <summary>
+        /// The damage to be dealt to the player upon exiting the collider.
+        /// </summary>
+        public int ExitDamageDealt;
+
+        /// <summary>
+        /// Event that gets triggered when some rigidbody enters the collider.
+        /// </summary>
+        /// <param name="triggerCollider">The collider of the object that entered the collider and triggered it.</param>
+        private void OnTriggerEnter2D(Collider2D triggerCollider)
         {
-            Player.Health -= this.EnterDamageDealt;
+            if (triggerCollider == this.PlayerCollider)
+            {
+                this.Player.DamageGeneric(this.EnterDamageDealt);
+            }
         }
-    }
 
-    /// <summary>
-    /// Event that gets triggered when some rigidbody is within the collider.
-    /// </summary>
-    /// <param name="triggerCollider">The collider of the object that entered the collider and triggered it.</param>
-    public void OnTriggerStay2D(Collider2D triggerCollider)
-    {
-        if (triggerCollider == this.PlayerCollider)
+        /// <summary>
+        /// Event that gets triggered when some rigidbody is within the collider.
+        /// </summary>
+        /// <param name="triggerCollider">The collider of the object that entered the collider and triggered it.</param>
+        private void OnTriggerStay2D(Collider2D triggerCollider)
         {
-            Player.Health -= this.ContinousDamageDealt;
+            if (triggerCollider == this.PlayerCollider)
+            {
+                this.Player.DamageGeneric(this.ContinousDamageDealt);
+            }
         }
-    }
 
-    /// <summary>
-    /// Event that gets triggered when some rigidbody exits the collider.
-    /// </summary>
-    /// <param name="triggerCollider">The collider of the object that entered the collider and triggered it.</param>
-    public void OnTriggerExit2D(Collider2D triggerCollider)
-    {
-        if (triggerCollider == this.PlayerCollider)
+        /// <summary>
+        /// Event that gets triggered when some rigidbody exits the collider.
+        /// </summary>
+        /// <param name="triggerCollider">The collider of the object that entered the collider and triggered it.</param>
+        private void OnTriggerExit2D(Collider2D triggerCollider)
         {
-            Player.Health -= this.ExitDamageDealt;
+            if (triggerCollider == this.PlayerCollider)
+            {
+                this.Player.DamageGeneric(this.ExitDamageDealt);
+            }
         }
     }
 }

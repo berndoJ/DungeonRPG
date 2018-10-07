@@ -1911,6 +1911,7 @@ GameObject:
   - component: {fileID: 731967371}
   - component: {fileID: 731967370}
   - component: {fileID: 731967366}
+  - component: {fileID: 731967367}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -2029,6 +2030,20 @@ MonoBehaviour:
   PlayerRenderer: {fileID: 731967364}
   Player: {fileID: 731967371}
   TintColor: {r: 0.8301887, g: 0.41901034, b: 0.41901034, a: 1}
+--- !u!114 &731967367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 731967361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21f2062495b54f3489db28ab289116b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 731967371}
+  MovementEnergyLoss: 0.5
+  JumpEnergyLoss: 10
 --- !u!95 &731967368
 Animator:
   serializedVersion: 3
@@ -2058,6 +2073,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 502871b06bbb6394c8bd0f6fa2f32db1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EntityRigidbody: {fileID: 731967362}
   MovementSpeed: 10
   DeathHeightLevel: -10
   JumpForce: 5
@@ -2066,7 +2082,6 @@ MonoBehaviour:
   GroundLayerMask:
     serializedVersion: 2
     m_Bits: 512
-  PlayerRigidbody: {fileID: 731967362}
   PlayerAnimator: {fileID: 731967368}
   Player: {fileID: 731967371}
 --- !u!114 &731967371
@@ -2084,6 +2099,7 @@ MonoBehaviour:
   AI: {fileID: 731967370}
   PlayerName: Player
   MaxEnergy: 100
+  AI: {fileID: 731967370}
 --- !u!1 &733878017
 GameObject:
   m_ObjectHideFlags: 0
@@ -139520,7 +139536,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerCollider: {fileID: 731967363}
-  Player: {fileID: 0}
+  Player: {fileID: 731967371}
   EnterDamageDealt: 0
   ContinousDamageDealt: 3
   ExitDamageDealt: 0
