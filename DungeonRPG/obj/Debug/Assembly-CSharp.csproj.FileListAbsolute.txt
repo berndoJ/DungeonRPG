@@ -166,3 +166,5 @@ E:\Coding\Unity Games\DungeonRPG\DungeonRPG\obj\Debug\Assembly-CSharp.csproj.Cor
 E:\Coding\Unity Games\DungeonRPG\DungeonRPG\obj\Debug\Assembly-CSharp.csproj.CopyComplete
 E:\Coding\Unity Games\DungeonRPG\DungeonRPG\obj\Debug\Assembly-CSharp.dll
 E:\Coding\Unity Games\DungeonRPG\DungeonRPG\obj\Debug\Assembly-CSharp.pdb
+E:\Coding\Unity Games\DungeonRPG\DungeonRPG\Temp\bin\Debug\Assembly-CSharp.dll.CodeAnalysisLog.xml
+E:\Coding\Unity Games\DungeonRPG\DungeonRPG\Temp\bin\Debug\Assembly-CSharp.dll.lastcodeanalysissucceeded

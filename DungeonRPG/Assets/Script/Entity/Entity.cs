@@ -26,7 +26,7 @@ namespace DungeonRPG.Entity
         /// The AI of the entity.
         /// </summary>
         [Tooltip("The AI of the entity.")]
-        public EntityAI AI;
+        public IEntityAI AI;
 
         #endregion
 
@@ -108,15 +108,6 @@ namespace DungeonRPG.Entity
         public void Damage(int damage, Entity damager)
         {
             this.DamageGeneric(damage);
-        }
-
-        /// <summary>
-        /// Teleports the entity to the given position.
-        /// </summary>
-        /// <param name="position">The position to teleport the entitiy to.</param>
-        public void TeleportTo(Vector3 position)
-        {
-            this.AI.SetTransformPosition(position);
         }
 
         #endregion

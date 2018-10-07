@@ -31,12 +31,74 @@ namespace DungeonRPG.Entity
         public float JumpEnergyLoss = 5F;
 
         /// <summary>
+        /// The thershold below which the player runs slowly.
+        /// Default: 10F
+        /// </summary>
+        [Tooltip("The thershold below which the player runs slowly.")]
+        public float SlowRunEnergyThreshold = 10F;
+
+        /// <summary>
+        /// The factor which gets multiplied with the players speed when he should run slowly.
+        /// Default: 0.5F
+        /// </summary>
+        [Tooltip("The factor which gets multiplied with the players speed when he should run slowly.")]
+        public float SlowRunCoefficient = 0.5F;
+
+        /// <summary>
+        /// The threshold below which the player cannot jump anymore.
+        /// Default: 15F
+        /// </summary>
+        [Tooltip("The threshold below which the player cannot jump anymore.")]
+        public float NoJumpEnergyThreshold = 15F;
+
+        #region Properties
+
+        /// <summary>
+        /// Boolean indicating if the speed of the player is currently reduced by this script.
+        /// </summary>
+        public bool IsSpeedReduced
+        {
+            get;
+            private set;
+        }
+
+        #endregion
+
+        /// <summary>
         /// Init of this code.
         /// </summary>
         private void Awake()
         {
+            this.IsSpeedReduced = false;
             this.Player.AI.OnPlayerMove += this.OnPlayerMove;
             this.Player.AI.OnPlayerJump += this.OnPlayerJump;
+        }
+
+        /// <summary>
+        /// Game loop.
+        /// </summary>
+        private void FixedUpdate()
+        {
+            // Slow run
+            if (this.Player.Energy < this.SlowRunEnergyThreshold && this.Player.AI.IsOnGround && !this.IsSpeedReduced)
+            {
+                this.IsSpeedReduced = true;
+                this.Player.AI.MovementSpeedCoefficient *= this.SlowRunCoefficient;
+            }
+            else if (this.Player.Energy >= this.SlowRunEnergyThreshold && this.IsSpeedReduced)
+            {
+                this.IsSpeedReduced = false;
+                this.Player.AI.MovementSpeedCoefficient /= this.SlowRunCoefficient;
+            }
+            // No jump
+            if (this.Player.Energy < this.NoJumpEnergyThreshold)
+            {
+                this.Player.AI.CanJump = false;
+            }
+            else
+            {
+                this.Player.AI.CanJump = true;
+            }
         }
 
         /// <summary>

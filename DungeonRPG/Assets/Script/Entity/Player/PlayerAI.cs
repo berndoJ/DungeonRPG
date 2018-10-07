@@ -8,7 +8,7 @@ using DungeonRPG.Event;
 
 namespace DungeonRPG.Entity
 {
-    public class PlayerAI : EntityAI
+    public class PlayerAI : MonoBehaviour, IEntityAI
     {
         #region Constants
 
@@ -84,6 +84,12 @@ namespace DungeonRPG.Entity
         [Tooltip("The player this AI belongs to.")]
         public Player Player;
 
+        /// <summary>
+        /// The rigidbody of the entity.
+        /// </summary>
+        [Tooltip("The rigidbody of the entity.")]
+        public Rigidbody2D EntityRigidbody;
+
         #endregion
 
         #region Events
@@ -102,6 +108,73 @@ namespace DungeonRPG.Entity
         /// Gets invoked when the player lands on ground.
         /// </summary>
         public event EventHandler<PlayerLandEventArgs> OnPlayerLand;
+
+        #endregion
+
+        #region Properties
+
+        /// <summary>
+        /// Coefficient for controlling movement speed.
+        /// </summary>
+        public float MovementSpeedCoefficient
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Value for controlling if the player can move.
+        /// </summary>
+        public bool CanMove
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Coefficient for controlling jump force.
+        /// </summary>
+        public float JumpForceCoefficient
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Value for controlling if the player can jump.
+        /// </summary>
+        public bool CanJump
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Value indicating if the player is currently on the ground.
+        /// </summary>
+        public bool IsOnGround
+        {
+            get;
+            protected set;
+        }
+
+        /// <summary>
+        /// The looking direction of the entity.
+        /// </summary>
+        public EntityLookingDirection LookingDirection
+        {
+            get;
+            protected set;
+        }
+
+        /// <summary>
+        /// The current movement speed of the entity.
+        /// </summary>
+        public float CurrentMovementSpeed
+        {
+            get;
+            protected set;
+        }
 
         #endregion
 
@@ -197,25 +270,29 @@ namespace DungeonRPG.Entity
                 // Apply movement to the rigidbody of the player.
                 Vector3 targetVelocity = new Vector2(xMovement * this.MOVEMENT_X_COEFFICIENT, this.EntityRigidbody.velocity.y);
                 this.EntityRigidbody.velocity = Vector3.SmoothDamp(this.EntityRigidbody.velocity, targetVelocity, ref this.mCurrentPlayerVelocity, this.MovementSmoothing);
-                // Flip the player if necessary
+                // Flip the player if necessary.
                 if (xMovement > 0 && this.LookingDirection == EntityLookingDirection.NEGATIVE_X)
                     this.FlipEntityLookingDirection();
                 else if (xMovement < 0 && this.LookingDirection == EntityLookingDirection.POSITIVE_X)
                     this.FlipEntityLookingDirection();
-                // Invoke OnPlayerMove
+                // Update current movement speed.
+                this.CurrentMovementSpeed = xMovement;
+                // Invoke OnPlayerMove.
                 if (this.OnPlayerMove != null)
                     this.OnPlayerMove(this, new PlayerMoveEventArgs(xMovement));
             }
-            // Check if the player jumps
+            // Check if the player jumps.
             if (this.CanJump && this.IsOnGround && this.mInputButtonJump)
             {
                 this.mInputButtonJump = false;
                 this.EntityRigidbody.AddForce(new Vector2(0F, this.JumpForce * this.JUMP_COEFFICIENT));
-                // Invoke OnJumpEvent
+                // Invoke OnJumpEvent.
                 if (this.OnPlayerJump != null)
                     this.OnPlayerJump(this, new PlayerJumpEventArgs());
             }
-            // Check for falling death
+            // Reset the jump request.
+            this.mInputButtonJump = false;
+            // Check for falling death.
             if (this.EntityRigidbody.position.y < this.DeathHeightLevel)
                 this.Player.Kill();
         }
@@ -259,6 +336,15 @@ namespace DungeonRPG.Entity
             this.transform.localScale = scale;
         }
 
+        /// <summary>
+        /// Sets the rigidbody transform position.
+        /// </summary>
+        /// <param name="position">The new position.</param>
+        public void SetTransformPosition(Vector2 position)
+        {
+            this.EntityRigidbody.position = position;
+        }
+
         #endregion
 
         #region Event Delegates
@@ -294,6 +380,23 @@ namespace DungeonRPG.Entity
         {
             // Update the animator.
             this.PlayerAnimator.SetFloat("PlayerSpeed", Mathf.Abs(e.CurrentMovementSpeed));
+        }
+
+        #endregion
+
+        #region IEntityAI Implementation
+
+        /*
+         * See IEntityAI declaration for more information on the methods.
+         */
+
+        /// <summary>
+        /// Gets the entity's rigidbody.
+        /// </summary>
+        /// <returns>The rigidbody</returns>
+        public Rigidbody2D GetEntityRigidbody()
+        {
+            return this.EntityRigidbody;
         }
 
         #endregion
