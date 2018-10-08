@@ -13,6 +13,7 @@ This game was developed as an informatics class semester project.
 Main contributers:
 - berndoJ (Main code and development)
 - Striker5 (Texture creator and designer)
+- MarcoDronigi (Main level design)
 
 Idea:
 - Striker5
