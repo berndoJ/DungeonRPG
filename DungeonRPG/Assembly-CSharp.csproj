@@ -64,10 +64,16 @@
      <Compile Include="Assets\Script\Entity\Player\PlayerRegen.cs" />
      <Compile Include="Assets\Script\Event\EntityDieEventArgs.cs" />
      <Compile Include="Assets\Script\Event\EntityHealthChangedEventArgs.cs" />
+     <Compile Include="Assets\Script\Event\ItemCountChangedEventArgs.cs" />
      <Compile Include="Assets\Script\Event\PlayerEnergyChangedEventArgs.cs" />
      <Compile Include="Assets\Script\Event\PlayerJumpEventArgs.cs" />
      <Compile Include="Assets\Script\Event\PlayerLandEventArgs.cs" />
      <Compile Include="Assets\Script\Event\PlayerMoveEventArgs.cs" />
+     <Compile Include="Assets\Script\Inventory\Inventory.cs" />
+     <Compile Include="Assets\Script\Inventory\InventoryGUIManager.cs" />
+     <Compile Include="Assets\Script\Inventory\InventorySlot.cs" />
+     <Compile Include="Assets\Script\Item\Item.cs" />
+     <Compile Include="Assets\Script\Item\ItemStack.cs" />
      <Compile Include="Assets\Script\Player\CharacterController2D.cs" />
      <Compile Include="Assets\Script\Player\PlayerBehavior.cs" />
      <Compile Include="Assets\Script\UI\F2EasterEgg.cs" />
@@ -94,16 +100,16 @@
      <None Include="Assets\Tilemap\Tiles\Rule Tile\ScriptTemplates\NewCustomRuleTile.cs.txt" />
      <None Include="Assets\Tilemap\Brushes\Tint Brush Smooth\Shaders\TintedTilemap.shader" />
  <Reference Include="UnityEditor.StandardEvents">
- <HintPath>D:/Coding/Unity Games/DungeonRPG/DungeonRPG/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+ <HintPath>E:/Coding/Unity Games/DungeonRPG/DungeonRPG/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>D:/Coding/Unity Games/DungeonRPG/DungeonRPG/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>E:/Coding/Unity Games/DungeonRPG/DungeonRPG/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.PackageManagerUI.Editor">
- <HintPath>D:/Coding/Unity Games/DungeonRPG/DungeonRPG/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+ <HintPath>E:/Coding/Unity Games/DungeonRPG/DungeonRPG/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>D:/Coding/Unity Games/DungeonRPG/DungeonRPG/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>E:/Coding/Unity Games/DungeonRPG/DungeonRPG/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

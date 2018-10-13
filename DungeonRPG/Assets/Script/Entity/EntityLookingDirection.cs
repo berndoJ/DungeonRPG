@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 
 
-namespace DungeonRPG.Entity
+namespace DungeonRPG.Entities
 {
     /// <summary>
     /// Enum for specifying the direction the player looks in.

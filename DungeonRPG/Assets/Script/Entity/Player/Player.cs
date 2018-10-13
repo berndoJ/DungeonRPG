@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 using DungeonRPG.Event;
 
-namespace DungeonRPG.Entity
+namespace DungeonRPG.Entities
 {
     /// <summary>
     /// This class controlls all the movements done by the player.

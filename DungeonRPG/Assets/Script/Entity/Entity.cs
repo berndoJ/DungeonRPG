@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 using DungeonRPG.Event;
 
-namespace DungeonRPG.Entity
+namespace DungeonRPG.Entities
 {
     /// <summary>
     /// Base class for entities.

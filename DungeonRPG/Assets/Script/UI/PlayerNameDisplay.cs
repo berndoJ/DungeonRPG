@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-using DungeonRPG.Entity;
+using DungeonRPG.Entities;
 
 namespace DungeonRPG.UI
 {

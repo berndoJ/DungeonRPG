@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-using DungeonRPG.Entity;
+using DungeonRPG.Entities;
 
 namespace DungeonRPG.WorldFeature
 {

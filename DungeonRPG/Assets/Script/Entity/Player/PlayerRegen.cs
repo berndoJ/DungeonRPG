@@ -5,7 +5,7 @@ using System.Text;
 using UnityEngine;
 
 
-namespace DungeonRPG.Entity
+namespace DungeonRPG.Entities
 {
     public class PlayerRegen : MonoBehaviour
     {

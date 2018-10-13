@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace DungeonRPG.Entity
+namespace DungeonRPG.Entities
 {
     public class PlayerDamageTint : MonoBehaviour
     {

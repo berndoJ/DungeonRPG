@@ -6,7 +6,7 @@ using UnityEngine;
 
 using DungeonRPG.Event;
 
-namespace DungeonRPG.Entity
+namespace DungeonRPG.Entities
 {
     public class PlayerAI : MonoBehaviour, IEntityAI
     {

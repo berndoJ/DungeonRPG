@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace DungeonRPG.Entity
+namespace DungeonRPG.Entities
 {
     /// <summary>
     /// Entity AI base class
