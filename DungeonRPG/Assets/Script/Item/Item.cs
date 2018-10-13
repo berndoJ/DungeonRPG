@@ -89,6 +89,14 @@ namespace DungeonRPG.Items
         }
 
         /// <summary>
+        /// Retrieves the icon of this item.
+        /// </summary>
+        public Sprite GetIcon()
+        {
+            return this.mIcon;
+        }
+
+        /// <summary>
         /// Gets executed on main fire when holding this item.
         /// </summary>
         /// <param name="itemStack">The held itemstack.</param>

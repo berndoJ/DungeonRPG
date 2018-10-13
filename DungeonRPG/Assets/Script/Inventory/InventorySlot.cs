@@ -5,11 +5,14 @@ using System.Text;
 
 using DungeonRPG.Items;
 using DungeonRPG.Event;
+using UnityEngine;
 
 namespace DungeonRPG.Inventory
 {
     public class InventorySlot
     {
+        #region Properties
+
         /// <summary>
         /// The current itemstack in this slot.
         /// </summary>
@@ -25,13 +28,15 @@ namespace DungeonRPG.Inventory
                 {
                     this.mCurrentItemStack.OnItemCountChanged -= this.OnItemStackItemCountChanged;
                 }
-
+                
                 this.mCurrentItemStack = value;
 
                 if (this.mCurrentItemStack != null)
                 {
                     this.mCurrentItemStack.OnItemCountChanged += this.OnItemStackItemCountChanged;
                 }
+
+                this.mSlotChangedCallbackFunc(this);
             }
         }
         private ItemStack mCurrentItemStack;
@@ -46,6 +51,32 @@ namespace DungeonRPG.Inventory
                 return this.CurrentItemStack == null;
             }
         }
+
+        #endregion
+
+        #region Private Members
+
+        /// <summary>
+        /// The parent inventory of this slot.
+        /// </summary>
+        private Action<InventorySlot> mSlotChangedCallbackFunc;
+
+        #endregion
+
+        #region Constructor
+
+        /// <summary>
+        /// Creates a new instance of this class.
+        /// </summary>
+        /// <param name="callbackFunc">The parent inventory of this slot.</param>
+        public InventorySlot(Action<InventorySlot> slotChangedCallbackFunc)
+        {
+            this.mSlotChangedCallbackFunc = slotChangedCallbackFunc;
+        }
+
+        #endregion
+
+        #region Methods
 
         /// <summary>
         /// Clears this slot.
@@ -63,8 +94,10 @@ namespace DungeonRPG.Inventory
             if (e.NewItemCount == 0)
             {
                 this.CurrentItemStack = null;
-                return;
             }
+            this.mSlotChangedCallbackFunc(this);
         }
+
+        #endregion
     }
 }

@@ -64,6 +64,7 @@
      <Compile Include="Assets\Script\Entity\Player\PlayerRegen.cs" />
      <Compile Include="Assets\Script\Event\EntityDieEventArgs.cs" />
      <Compile Include="Assets\Script\Event\EntityHealthChangedEventArgs.cs" />
+     <Compile Include="Assets\Script\Event\InventoryChangedEventArgs.cs" />
      <Compile Include="Assets\Script\Event\ItemCountChangedEventArgs.cs" />
      <Compile Include="Assets\Script\Event\PlayerEnergyChangedEventArgs.cs" />
      <Compile Include="Assets\Script\Event\PlayerJumpEventArgs.cs" />
@@ -71,7 +72,9 @@
      <Compile Include="Assets\Script\Event\PlayerMoveEventArgs.cs" />
      <Compile Include="Assets\Script\Inventory\Inventory.cs" />
      <Compile Include="Assets\Script\Inventory\InventoryGUIManager.cs" />
+     <Compile Include="Assets\Script\Inventory\InventoryItemContainerHandler.cs" />
      <Compile Include="Assets\Script\Inventory\InventorySlot.cs" />
+     <Compile Include="Assets\Script\Inventory\InventorySlotRenderer.cs" />
      <Compile Include="Assets\Script\Item\Item.cs" />
      <Compile Include="Assets\Script\Item\ItemStack.cs" />
      <Compile Include="Assets\Script\Player\CharacterController2D.cs" />
