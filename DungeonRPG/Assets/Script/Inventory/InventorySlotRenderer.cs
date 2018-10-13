@@ -24,12 +24,6 @@ namespace DungeonRPG.Inventory
         public Text ItemDisplayNameText;
 
         /// <summary>
-        /// The inventory slot panel's transform.
-        /// </summary>
-        [NonSerialized]
-        public Transform InventorySlotPanelTransform;
-
-        /// <summary>
         /// The parent inventory.
         /// </summary>
         [NonSerialized]

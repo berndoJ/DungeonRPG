@@ -108,6 +108,15 @@ namespace DungeonRPG.Items
         /// <param name="itemStack">The held itemstack.</param>
         public virtual void OnSecondaryFire(ItemStack itemStack) { }
 
+        #region Override Methods
+
+        public override string ToString()
+        {
+            return "Item(" + this.mUIDString + ":\"" + this.mDisplayName + "\")";
+        }
+
+        #endregion
+
         #region Static
 
         /// <summary>

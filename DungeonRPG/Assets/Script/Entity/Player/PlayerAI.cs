@@ -251,9 +251,6 @@ namespace DungeonRPG.Entities
             // Update jump
             if (Input.GetButtonDown("Jump"))
                 this.mInputButtonJump = true;
-
-            if (Input.GetButtonDown("Fire1"))
-                this.Player.DamageGeneric(5);
         }
 
         /// <summary>

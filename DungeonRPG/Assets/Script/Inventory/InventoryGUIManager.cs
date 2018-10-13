@@ -23,10 +23,11 @@ namespace DungeonRPG.Inventory
         public List<InventorySlotRenderer> SlotRenderers;
 
         /// <summary>
-        /// The transform of the inventory slot panel.
+        /// An id offset to the given inventory.
+        /// Default: 0
         /// </summary>
-        [Tooltip("The transform of the inventory slot panel.")]
-        public Transform InventorySlotPanelTransform;
+        [Tooltip("An id offset to the given inventory.")]
+        public int IDOffset = 0;
 
         #region Behavior Methods
 
@@ -57,12 +58,11 @@ namespace DungeonRPG.Inventory
         {
             for (int i = 0; i < this.SlotRenderers.Count; i++)
             {
-                if (i < this.InventoryToRender.InventorySlots.Length) // Make sure not to get out of inventory slot array bounds.
+                if (i + this.IDOffset < this.InventoryToRender.InventorySlots.Length) // Make sure not to get out of inventory slot array bounds.
                 {
-                    this.SlotRenderers[i].RenderNewInventorySlot(this.InventoryToRender.InventorySlots[i]);
-                    this.SlotRenderers[i].InventorySlotPanelTransform = this.InventorySlotPanelTransform;
+                    this.SlotRenderers[i].RenderNewInventorySlot(this.InventoryToRender.InventorySlots[i + this.IDOffset]);
                     this.SlotRenderers[i].CorrespondingInventory = this.InventoryToRender;
-                    this.SlotRenderers[i].CorrespondingInventorySlotID = i;
+                    this.SlotRenderers[i].CorrespondingInventorySlotID = i + this.IDOffset;
                 }
             }
         }

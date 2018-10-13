@@ -66,5 +66,32 @@ namespace DungeonRPG.Items
             this.ItemCount = itemCount;
             this.Item = item;
         }
+
+        #region Override Methods
+
+        public override string ToString()
+        {
+            if (this.Item == null) return "null";
+            if (this.ItemCount == 0) return "ItemStack(" + this.Item.ToString() + ",empty)";
+            return "ItemStack(" + this.Item.ToString() + ", " + this.ItemCount + ")";
+        }
+
+        #endregion
+
+        #region Static
+
+        /// <summary>
+        /// Swaps two itemstacks.
+        /// </summary>
+        /// <param name="stack1">The first itemstack.</param>
+        /// <param name="stack2">The second itemstack.</param>
+        public static void SwapItemStacks(ref ItemStack stack1, ref ItemStack stack2)
+        {
+            ItemStack temp = stack1;
+            stack1 = stack2;
+            stack2 = temp;
+        }
+
+        #endregion
     }
 }
