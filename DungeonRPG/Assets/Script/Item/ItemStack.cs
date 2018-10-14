@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using UnityEngine;
 
 namespace DungeonRPG.Items
 {
@@ -65,6 +65,15 @@ namespace DungeonRPG.Items
         {
             this.ItemCount = itemCount;
             this.Item = item;
+        }
+
+        /// <summary>
+        /// Creates a dropped entity of this itemstack on the given vector position.
+        /// </summary>
+        /// <param name="position">The position to drop the itemstack at.</param>
+        public void CreateEntity(Vector3 position)
+        {
+            this.Item.CreateEntity(this.ItemCount, position);
         }
 
         #region Override Methods

@@ -26,7 +26,18 @@ namespace DungeonRPG.ItemContainer
         /// </summary>
         [Tooltip("The slot renderer which corresponds with this item container handler.")]
         public InventorySlotRenderer SlotRenderer;
-        
+
+        #endregion
+
+        #region Private Fields
+
+        /// <summary>
+        /// Helper bool for <see cref="OnDisable"/>
+        /// </summary>
+        private bool mExecOnDisable = false;
+
+        private bool mDragging = false;
+
         #endregion
 
         #region Interface Implementation
@@ -37,6 +48,7 @@ namespace DungeonRPG.ItemContainer
         public void OnDrag(PointerEventData eventData)
         {
             this.transform.position = Input.mousePosition;
+            this.mDragging = true;
         }
 
         /// <summary>
@@ -45,6 +57,31 @@ namespace DungeonRPG.ItemContainer
         public void OnEndDrag(PointerEventData eventData)
         {
             this.transform.localPosition = Vector3.zero;
+            this.mDragging = false;
+        }
+
+        /// <summary>
+        /// Gets called when disabled.
+        /// </summary>
+        private void OnDisable()
+        {
+            if (!this.mExecOnDisable)
+            {
+                this.mExecOnDisable = true;
+                if (this.mDragging)
+                    this.DropItemSubFunc();
+            }
+        }
+
+        /// <summary>
+        /// Gets called when enabled.
+        /// </summary>
+        private void OnEnable()
+        {
+            if (this.mExecOnDisable)
+            {
+                this.mExecOnDisable = false;
+            }
         }
 
         /// <summary>
@@ -66,12 +103,9 @@ namespace DungeonRPG.ItemContainer
             }
             if (closestInventorySlot == null)
                 return;
-            if (minInventorySlotDist > DRAG_DROP_REMOVE_DIST && false)
+            if (minInventorySlotDist > DRAG_DROP_REMOVE_DIST)
             {
-                // TODO: Drop the item
-                ItemStack dropItemStack = this.SlotRenderer.CorrespondingInventory.InventorySlots[this.SlotRenderer.CorrespondingInventorySlotID].CurrentItemStack;
-                this.SlotRenderer.CorrespondingInventory.InventorySlots[this.SlotRenderer.CorrespondingInventorySlotID].CurrentItemStack = null;
-                Debug.Log("Dropping itemstack: " + dropItemStack);
+                this.DropItemSubFunc();
             }
             else
             {
@@ -84,6 +118,23 @@ namespace DungeonRPG.ItemContainer
                 this.SlotRenderer.CorrespondingInventory.InventorySlots[this.SlotRenderer.CorrespondingInventorySlotID].CurrentItemStack = srcItemStack;
                 destSlotRenderer.CorrespondingInventory.InventorySlots[destSlotRenderer.CorrespondingInventorySlotID].CurrentItemStack = destItemStack;
             }
+        }
+
+        private void DropItemSubFunc()
+        {
+            // Drop the item
+            ItemStack dropItemStack = this.SlotRenderer.CorrespondingInventory.InventorySlots[this.SlotRenderer.CorrespondingInventorySlotID].CurrentItemStack;
+            this.SlotRenderer.CorrespondingInventory.InventorySlots[this.SlotRenderer.CorrespondingInventorySlotID].CurrentItemStack = null;
+            Debug.Log("Dropping itemstack: " + dropItemStack);
+            Vector3 dropPos = Vector3.zero;
+            Transform playerTransform = GameObject.FindGameObjectsWithTag("Player").Select(o => o.transform).FirstOrDefault();
+            if (playerTransform == null)
+            {
+                Debug.Log("No player found to drop the itemstack at!");
+                return;
+            }
+            dropPos = playerTransform.position;
+            dropItemStack.CreateEntity(dropPos);
         }
 
         #endregion
