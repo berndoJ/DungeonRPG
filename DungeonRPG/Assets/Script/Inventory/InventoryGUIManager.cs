@@ -6,7 +6,7 @@ using UnityEngine;
 
 using DungeonRPG.Event;
 
-namespace DungeonRPG.Inventory
+namespace DungeonRPG.ItemContainer
 {
     public class InventoryGUIManager : MonoBehaviour
     {

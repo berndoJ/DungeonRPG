@@ -8,7 +8,7 @@ using DungeonRPG.Items;
 using DungeonRPG.Entities;
 using DungeonRPG.Event;
 
-namespace DungeonRPG.Inventory
+namespace DungeonRPG.ItemContainer
 {
     public class Inventory : MonoBehaviour
     {
@@ -62,13 +62,67 @@ namespace DungeonRPG.Inventory
                     this.InventorySlots[i] = new InventorySlot((slot) => this.InvChangedCallbackFunc(slot)); 
             }
             // Test
-            this.InventorySlots[0].CurrentItemStack = new ItemStack(testItm, testItm.GetMaxStackSize());
+            this.AddItem(testItm, 33);
+            this.AddItem(testItm, 33);
+            this.AddItem(testItm, 33);
+            testItm.CreateEntity(3, new Vector3(-1, -2));
+            testItm.CreateEntity(3, new Vector3(-1, -2));
             // End Test
         }
 
         #endregion
 
         #region Methods
+
+        /// <summary>
+        /// Adds an item to the inventory. If the item could not be added, the leftover is returned.
+        /// </summary>
+        /// <param name="item">The item to add.</param>
+        /// <param name="count">The cound of items to add.</param>
+        public uint AddItem(Item item, uint count)
+        {
+            if (count == 0) return 0;
+            foreach (InventorySlot slot in this.InventorySlots)
+            {
+                if (!slot.IsEmpty)
+                {
+                    if (slot.CurrentItemStack.Item == item)
+                    {
+                        uint availableSlotSpace = item.GetMaxStackSize() - slot.CurrentItemStack.ItemCount;
+                        if (count <= availableSlotSpace)
+                        {
+                            slot.CurrentItemStack.ItemCount += count;
+                            count = 0;
+                        }
+                        else
+                        {
+                            slot.CurrentItemStack.ItemCount = item.GetMaxStackSize();
+                            count -= availableSlotSpace;
+                        }
+                    }
+                }
+                else
+                {
+                    if (count <= item.GetMaxStackSize())
+                    {
+                        slot.CurrentItemStack = new ItemStack(item, count);
+                        count = 0;
+                    }
+                    else
+                    {
+                        slot.CurrentItemStack = new ItemStack(item, item.GetMaxStackSize());
+                        count -= item.GetMaxStackSize();
+                    }
+                }
+                if (count == 0)
+                    break;
+            }
+            return count;
+        }
+
+        #endregion
+
+        #region Callback Methods
 
         /// <summary>
         /// Callback function for slots to register a change in the inventory.

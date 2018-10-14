@@ -6,7 +6,7 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace DungeonRPG.Inventory
+namespace DungeonRPG.ItemContainer
 {
     public class InventoryItemContainerHandler : MonoBehaviour, IDragHandler, IEndDragHandler, IDropHandler
     {
@@ -55,7 +55,6 @@ namespace DungeonRPG.Inventory
             Vector3 dragPosition = Input.mousePosition;
             GameObject closestInventorySlot = null;
             float minInventorySlotDist = Mathf.Infinity;
-            Debug.Log("FOUND " + GameObject.FindGameObjectsWithTag("InventorySlot").Length);
             foreach (GameObject invSlotObj in GameObject.FindGameObjectsWithTag("InventorySlot"))
             {
                 float slotDist = Vector2.Distance(invSlotObj.transform.position, dragPosition);

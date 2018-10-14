@@ -3588,7 +3588,7 @@ MonoBehaviour:
   - {fileID: 121067774}
   - {fileID: 964166000}
   - {fileID: 1608328322}
-  IDOffset: 0
+  IDOffset: 5
 --- !u!1 &731967361
 GameObject:
   m_ObjectHideFlags: 0
@@ -24140,48 +24140,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1001 &1085473948
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4459625202839502, guid: 5197a6c7fcd91bf43b0f8f4a714c4048, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -0.96942747
-      objectReference: {fileID: 0}
-    - target: {fileID: 4459625202839502, guid: 5197a6c7fcd91bf43b0f8f4a714c4048, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -2.068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4459625202839502, guid: 5197a6c7fcd91bf43b0f8f4a714c4048, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 39.216797
-      objectReference: {fileID: 0}
-    - target: {fileID: 4459625202839502, guid: 5197a6c7fcd91bf43b0f8f4a714c4048, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4459625202839502, guid: 5197a6c7fcd91bf43b0f8f4a714c4048, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4459625202839502, guid: 5197a6c7fcd91bf43b0f8f4a714c4048, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4459625202839502, guid: 5197a6c7fcd91bf43b0f8f4a714c4048, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4459625202839502, guid: 5197a6c7fcd91bf43b0f8f4a714c4048, type: 2}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 5197a6c7fcd91bf43b0f8f4a714c4048, type: 2}
-  m_IsPrefabAsset: 0
 --- !u!224 &1115690146 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224814891686053020, guid: d6fa06aff58af704abe4576e7b11f277,
@@ -25518,7 +25476,7 @@ MonoBehaviour:
   - {fileID: 1007448672}
   - {fileID: 2101733042}
   - {fileID: 1172759557}
-  IDOffset: 24
+  IDOffset: 0
 --- !u!222 &1361457010
 CanvasRenderer:
   m_ObjectHideFlags: 0

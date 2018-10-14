@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 
-namespace DungeonRPG.Inventory
+namespace DungeonRPG.ItemContainer
 {
     public class InventorySlotRenderer : MonoBehaviour
     {

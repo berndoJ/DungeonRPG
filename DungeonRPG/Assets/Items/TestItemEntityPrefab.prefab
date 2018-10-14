@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 212749157667113178}
   - component: {fileID: 50528896673429302}
   - component: {fileID: 60989595695861662}
+  - component: {fileID: 114462270045141488}
   m_Layer: 5
   m_Name: TestItemEntityPrefab
   m_TagString: Untagged
@@ -83,7 +84,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 0.046871714
+  m_Mass: 0.08200413
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -116,14 +117,28 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.16005206, y: -0.11629248}
-      - {x: -0.31063867, y: -0.09625816}
-      - {x: -0.34372187, y: -0.34372187}
-      - {x: -0.09349704, y: -0.31244373}
-      - {x: -0.119320154, y: -0.16068697}
-      - {x: 0.34326124, y: 0.28363276}
-      - {x: 0.34281933, y: 0.3431821}
-      - {x: 0.28060317, y: 0.3428192}
+    - - {x: -0.20795447, y: -0.07364579}
+      - {x: -0.33698437, y: -0.05820342}
+      - {x: -0.3700675, y: -0.37299496}
+      - {x: -0.06715127, y: -0.3300074}
+      - {x: -0.07494364, y: -0.18936121}
+      - {x: 0.3568758, y: 0.27498925}
+      - {x: 0.3546478, y: 0.3548913}
+      - {x: 0.2776759, y: 0.35745567}
+--- !u!114 &114462270045141488
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1060605832118256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de6e3ed127cf07c4891d22273434bbd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LightSpriteRenderer: {fileID: 212186074520138878}
+  PickupInventory: {fileID: 0}
+  mCorrespondingItem: {fileID: 11400000, guid: c8cbcc1607d023c4eb968053386fd751, type: 2}
 --- !u!212 &212186074520138878
 SpriteRenderer:
   m_ObjectHideFlags: 1

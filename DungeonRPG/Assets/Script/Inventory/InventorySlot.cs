@@ -7,7 +7,7 @@ using DungeonRPG.Items;
 using DungeonRPG.Event;
 using UnityEngine;
 
-namespace DungeonRPG.Inventory
+namespace DungeonRPG.ItemContainer
 {
     public class InventorySlot
     {

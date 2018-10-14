@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DungeonRPG.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -47,6 +48,14 @@ namespace DungeonRPG.Items
         [Tooltip("The icon of the item.")]
         [Header("Icon")]
         private Sprite mIcon = null;
+
+        /// <summary>
+        /// The entity prefab object of this item.
+        /// </summary>
+        [SerializeField]
+        [Tooltip("The entity prefab object of this item.")]
+        [Header("Item Entity Prefab")]
+        private GameObject mItemEntityPrefab;
 
         #region ScriptableObject Methods
 
@@ -107,6 +116,22 @@ namespace DungeonRPG.Items
         /// </summary>
         /// <param name="itemStack">The held itemstack.</param>
         public virtual void OnSecondaryFire(ItemStack itemStack) { }
+
+        /// <summary>
+        /// Creates an entity of this item with the given amount of items.
+        /// </summary>
+        /// <param name="itemCount">The item count</param>
+        /// <param name="posititon">The position of the entity</param>
+        public void CreateEntity(uint itemCount, Vector3 posititon)
+        {
+            if (itemCount == 0) return;
+            GameObject instantiatedObj = Instantiate(this.mItemEntityPrefab, posititon, Quaternion.identity);
+            ItemEntity itemEntity = instantiatedObj.GetComponent<ItemEntity>();
+            if (itemEntity == null)
+                Debug.LogError("The component 'ItemEntity' is missing from the prefab game object!");
+            else
+                itemEntity.ItemCount = itemCount;
+        }
 
         #region Override Methods
 
