@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mDisplayName: New Item
   mUIDString: new_item
-  mMaxStackSize: 64
+  mMaxStackSize: 1
   mIcon: {fileID: 21300000, guid: 3cd4195ea4d0a8b4b95dff3b61d16b8a, type: 3}
   mItemEntityPrefab: {fileID: 1060605832118256, guid: 5197a6c7fcd91bf43b0f8f4a714c4048,
     type: 2}

@@ -18,7 +18,7 @@ namespace DungeonRPG.InputUtils
         F2_EASER_EGG,
         FPS_COUNTER,
         MINIMAP_CAMERA_CONTROL,
-        OBJECT_ACTIVE_TOGGLE,
+        INVENTORY_TOGGLE,
         GAME_CONSOLE
     }
 
@@ -45,8 +45,8 @@ namespace DungeonRPG.InputUtils
                 case GameInputClass.MINIMAP_CAMERA_CONTROL:
                     MinimapCameraControl.INPUT_ENABLED = state;
                     break;
-                case GameInputClass.OBJECT_ACTIVE_TOGGLE:
-                    ObjectActiveToggle.INPUT_ENABLED = state;
+                case GameInputClass.INVENTORY_TOGGLE:
+                    InventoryToggle.INPUT_ENABLED = state;
                     break;
                 case GameInputClass.GAME_CONSOLE:
                     GameConsole.INPUT_ENABLED = state;

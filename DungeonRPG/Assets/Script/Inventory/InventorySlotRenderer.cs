@@ -46,7 +46,10 @@ namespace DungeonRPG.ItemContainer
                 this.ItemIconImage.enabled = true;
                 this.ItemIconImage.sprite = slot.CurrentItemStack.Item.GetIcon();
                 this.ItemDisplayNameText.enabled = true;
-                this.ItemDisplayNameText.text = slot.CurrentItemStack.ItemCount.ToString();
+                if (slot.CurrentItemStack.ItemCount > 1)
+                    this.ItemDisplayNameText.text = slot.CurrentItemStack.ItemCount.ToString();
+                else
+                    this.ItemDisplayNameText.text = string.Empty;
             }
             else
             {

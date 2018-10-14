@@ -61,13 +61,6 @@ namespace DungeonRPG.ItemContainer
                 for (int i = 0; i < this.InventorySize; i++)
                     this.InventorySlots[i] = new InventorySlot((slot) => this.InvChangedCallbackFunc(slot)); 
             }
-            // Test
-            this.AddItem(testItm, 33);
-            this.AddItem(testItm, 33);
-            this.AddItem(testItm, 33);
-            testItm.CreateEntity(3, new Vector3(-1, -2));
-            testItm.CreateEntity(3, new Vector3(-1, -2));
-            // End Test
         }
 
         #endregion

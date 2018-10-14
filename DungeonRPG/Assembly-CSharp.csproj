@@ -90,8 +90,8 @@
     <Compile Include="Assets\Script\Player\PlayerBehavior.cs" />
     <Compile Include="Assets\Script\UI\F2EasterEgg.cs" />
     <Compile Include="Assets\Script\UI\FPSCounter.cs" />
+    <Compile Include="Assets\Script\UI\InventoryToggle.cs" />
     <Compile Include="Assets\Script\UI\MinimapCameraControl.cs" />
-    <Compile Include="Assets\Script\UI\ObjectActiveToggle.cs" />
     <Compile Include="Assets\Script\UI\ObjectFollowText.cs" />
     <Compile Include="Assets\Script\UI\PlayerDamageDisplay.cs" />
     <Compile Include="Assets\Script\UI\PlayerEnergyBarDisplay.cs" />

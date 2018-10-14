@@ -134,6 +134,8 @@ namespace DungeonRPG.ItemContainer
                 return;
             }
             dropPos = playerTransform.position;
+            if (dropItemStack == null)
+                return;
             dropItemStack.CreateEntity(dropPos);
         }
 
