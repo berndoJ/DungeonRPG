@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
+
+using DungeonRPG.InputUtils;
 
 namespace DungeonRPG.CommandEnvironment
 {
@@ -38,6 +41,12 @@ namespace DungeonRPG.CommandEnvironment
         [Tooltip("The object which gets activated and deactivated when the console is opened / closed.")]
         public GameObject ConsolePanelObject;
 
+        /// <summary>
+        /// The scroll rect of the console.
+        /// </summary>
+        [Tooltip("The scroll rect of the console.")]
+        public ScrollRect ConsoleScrollRect;
+
         #endregion
 
         #region Static Properties and Fields
@@ -57,9 +66,9 @@ namespace DungeonRPG.CommandEnvironment
         public static Dictionary<string, IGameCommand> CommandRegistry;
 
         /// <summary>
-        /// Value that can prevent console input (open / close / enter)
+        /// Input enable / disable.
         /// </summary>
-        public static bool CONSOLE_INPUT_ENABLED = true;
+        public static bool INPUT_ENABLED = true;
 
         #endregion
 
@@ -93,16 +102,28 @@ namespace DungeonRPG.CommandEnvironment
             {
                 this.ConsolePanelObject.SetActive(!this.ConsolePanelObject.activeInHierarchy);
                 if (this.ConsolePanelObject.activeInHierarchy)
+                {
                     this.InputCommandField.Select();
+                    this.InputCommandField.ActivateInputField();
+                    InputManager.DisableAllInputStates();
+                    InputManager.EnableInputState(GameInputClass.GAME_CONSOLE);
+                }
+                else
+                {
+                    InputManager.EnableAllInputStates();
+                }
             }
-            if (CONSOLE_INPUT_ENABLED && this.ConsolePanelObject.activeInHierarchy)
+            if (INPUT_ENABLED && this.ConsolePanelObject.activeInHierarchy)
             {
                 if (Input.GetKeyDown(KeyCode.Return))
                 {
                     string command = this.InputCommandField.text;
                     this.InputCommandField.Select();
+                    this.InputCommandField.ActivateInputField();
                     this.InputCommandField.text = string.Empty;
-                    Log(command);
+                    this.ExecParseCmd(command);
+                    this.InputCommandField.Select();
+                    this.InputCommandField.ActivateInputField();
                 }
             }
         }
@@ -139,6 +160,45 @@ namespace DungeonRPG.CommandEnvironment
             Log("Registered " + registeredCommands + " commands.");
         }
 
+        /// <summary>
+        /// Executes and parses a command.
+        /// </summary>
+        /// <param name="cmdRaw">The command to execute / parse</param>
+        private void ExecParseCmd(string cmdRaw)
+        {
+            if (string.IsNullOrEmpty(cmdRaw))
+                return;
+            // Match the input and split the command into arguments (space, excluding when in quotes)
+            Regex cmdRegex = new Regex(@"\w+|""[\w\s]*""");
+            List<Match> matches = cmdRegex.Matches(cmdRaw).Cast<Match>().ToList();
+            List<string> argsRaw = new List<string>();
+            foreach (Match m in matches)
+            {
+                string matchVal = m.Value;
+                if (matchVal.StartsWith("\""))
+                    matchVal = matchVal.Substring(1);
+                if (matchVal.EndsWith("\""))
+                    matchVal = matchVal.Substring(0, matchVal.Length - 1);
+                argsRaw.Add(matchVal);
+            }
+            if (argsRaw.Count < 1)
+                return;
+            string parsedCmd = argsRaw[0];
+            // Search for the command
+            List<IGameCommand> matchingCommands = CommandRegistry.Keys.Select(k => CommandRegistry[k]).Where(v => v.Command == parsedCmd).ToList();
+            if (matchingCommands.Count < 1)
+            {
+                // Invalid command
+                Log(CStr("Command '" + parsedCmd + "' not found.", Color.red));
+                return;
+            }
+            IGameCommand command = matchingCommands.First();
+            List<string> commandArgs = argsRaw.Skip(1).ToList();
+            Debug.Log("[CommandEnvironment] Executing command '" + command.UIDString + "'.");
+            Log(CStr("Execute <" + command.Command + ">:", Color.yellow));
+            command.Execute(commandArgs);
+        }
+
         #endregion
 
         #region Static Methods
@@ -152,6 +212,22 @@ namespace DungeonRPG.CommandEnvironment
         public static void LogRaw(string msg)
         {
             Instance.ConsoleText.text += msg;
+            if (Instance.ConsoleText.text.Length > 9000)
+            {
+                Instance.ConsoleText.text = string.Empty;
+                Instance.ConsoleText.text += CStr("Force clear - too many characters.\n", Color.yellow);
+            }
+            Instance.StartCoroutine(ScrollToTextCoFunc());
+        }
+
+        /// <summary>
+        /// Coroutine for scrolling to the text after the frame has finished.
+        /// </summary>
+        /// <returns>-</returns>
+        private static System.Collections.IEnumerator ScrollToTextCoFunc()
+        {
+            yield return new WaitForEndOfFrame();
+            Instance.ConsoleScrollRect.verticalNormalizedPosition = 0F;
         }
 
         /// <summary>
@@ -243,6 +319,18 @@ namespace DungeonRPG.CommandEnvironment
 
         #endregion
 
+        #region Clear
+
+        /// <summary>
+        /// Clears the console.
+        /// </summary>
+        public static void Clear()
+        {
+            Instance.ConsoleText.text = string.Empty;
+        }
+
+        #endregion
+
         #region Helpers
 
         /// <summary>
@@ -288,26 +376,5 @@ namespace DungeonRPG.CommandEnvironment
     {
         BOLD,
         ITALIC
-    }
-
-    public class TestCommand : IGameCommand
-    {
-        public string UIDString { get; private set; }
-
-        public string Command { get; private set; }
-
-        public string Description { get; private set; }
-
-        public string Help { get; private set; }
-
-        public void Execute(List<string> args)
-        {
-            throw new NotImplementedException();
-        }
-
-        public TestCommand()
-        {
-            this.UIDString = "uid_str";
-        }
     }
 }

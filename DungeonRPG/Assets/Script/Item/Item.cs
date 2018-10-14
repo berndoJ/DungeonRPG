@@ -150,18 +150,37 @@ namespace DungeonRPG.Items
         private static List<Item> CurrentlyKnownItems = null;
 
         /// <summary>
-        /// Retrieves an item by the given UID string.
+        /// Retrieves an item by the given UID string. Returns null if the item does not exist.
         /// </summary>
         /// <param name="uidString">The UID string of the item.</param>
         /// <returns>The item / null if it does not exist.</returns>
         public static Item GetItemByUID(string uidString)
         {
             if (CurrentlyKnownItems == null)
-                CurrentlyKnownItems = AssetDatabase.FindAssets("t:" + typeof(Item).Name)
-                    .Select(guid => AssetDatabase.LoadAssetAtPath<Item>(AssetDatabase.GUIDToAssetPath(guid)))
-                    .ToList();
+                UpdateKnownItemsList();
             List<Item> matches = CurrentlyKnownItems.Where(i => i.GetUID() == uidString).ToList();
             return matches.FirstOrDefault();
+        }
+
+        /// <summary>
+        /// Retrieves a list of all items in the game.
+        /// </summary>
+        /// <returns>A list of all items in the game.</returns>
+        public static List<Item> GetAllItems()
+        {
+            if (CurrentlyKnownItems == null)
+                UpdateKnownItemsList();
+            return CurrentlyKnownItems;
+        }
+
+        /// <summary>
+        /// Updates the <see cref="CurrentlyKnownItems"/> list.
+        /// </summary>
+        private static void UpdateKnownItemsList()
+        {
+            CurrentlyKnownItems = AssetDatabase.FindAssets("t:" + typeof(Item).Name)
+                    .Select(guid => AssetDatabase.LoadAssetAtPath<Item>(AssetDatabase.GUIDToAssetPath(guid)))
+                    .ToList();
         }
 
         #endregion

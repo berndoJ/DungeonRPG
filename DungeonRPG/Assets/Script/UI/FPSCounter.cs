@@ -8,6 +8,11 @@ namespace DungeonRPG.UI
     public class FPSCounter : MonoBehaviour
     {
         /// <summary>
+        /// Input enable / disable value.
+        /// </summary>
+        public static bool INPUT_ENABLED = true;
+
+        /// <summary>
         /// The label the text should be displayed to.
         /// </summary>
         public Text FPSCounterLabel;
@@ -32,7 +37,7 @@ namespace DungeonRPG.UI
         /// </summary>
         private void Update()
         {
-            if (Input.GetButtonDown("FPS Toggle"))
+            if (INPUT_ENABLED && Input.GetButtonDown("FPS Toggle"))
             {
                 this.FPSCounterLabel.enabled = !this.FPSCounterLabel.enabled;
             }

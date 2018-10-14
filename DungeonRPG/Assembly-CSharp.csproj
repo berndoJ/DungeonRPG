@@ -55,6 +55,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Script\Camera\CameraFollow.cs" />
+    <Compile Include="Assets\Script\CommandEnvironment\Commands\GameCommandClear.cs" />
+    <Compile Include="Assets\Script\CommandEnvironment\Commands\GameCommandGiveItem.cs" />
+    <Compile Include="Assets\Script\CommandEnvironment\Commands\GameCommandHelp.cs" />
+    <Compile Include="Assets\Script\CommandEnvironment\Commands\GameCommandListItems.cs" />
     <Compile Include="Assets\Script\CommandEnvironment\GameConsole.cs" />
     <Compile Include="Assets\Script\CommandEnvironment\IGameCommand.cs" />
     <Compile Include="Assets\Script\Entity\Entity.cs" />
@@ -74,6 +78,7 @@
     <Compile Include="Assets\Script\Event\PlayerJumpEventArgs.cs" />
     <Compile Include="Assets\Script\Event\PlayerLandEventArgs.cs" />
     <Compile Include="Assets\Script\Event\PlayerMoveEventArgs.cs" />
+    <Compile Include="Assets\Script\InputUtils\InputManager.cs" />
     <Compile Include="Assets\Script\Inventory\Inventory.cs" />
     <Compile Include="Assets\Script\Inventory\InventoryGUIManager.cs" />
     <Compile Include="Assets\Script\Inventory\InventoryItemContainerHandler.cs" />
@@ -358,7 +363,6 @@
       <HintPath>C:/Program Files/Unity/Editor/Data/MonoBleedingEdge/lib/mono/unity/Boo.Lang.dll</HintPath>
     </Reference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

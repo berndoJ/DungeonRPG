@@ -29,6 +29,15 @@ namespace DungeonRPG.Entities
 
         #endregion
 
+        #region Static Fields
+
+        /// <summary>
+        /// Input enable / disable value.
+        /// </summary>
+        public static bool INPUT_ENABLED = true;
+
+        #endregion
+
         #region Property Fields
 
         /// <summary>
@@ -246,11 +255,18 @@ namespace DungeonRPG.Entities
         /// </summary>
         private void UpdateInputFields()
         {
-            // Update horizontal movement
-            this.mInputHorizontalMovement = Input.GetAxisRaw("Horizontal");
-            // Update jump
-            if (Input.GetButtonDown("Jump"))
-                this.mInputButtonJump = true;
+            if (INPUT_ENABLED)
+            {
+                // Update horizontal movement
+                this.mInputHorizontalMovement = Input.GetAxisRaw("Horizontal");
+                // Update jump
+                if (Input.GetButtonDown("Jump"))
+                    this.mInputButtonJump = true;
+            }
+            else
+            {
+                this.mInputHorizontalMovement = 0F;
+            }
         }
 
         /// <summary>

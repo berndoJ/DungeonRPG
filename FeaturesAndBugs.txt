@@ -1,0 +1,12 @@
+DungeonRPG Feature Implementation and Bug list
+-------------------------------
+
+Features to implement
+---------------------
+
+
+
+Known bugs that need to be fixed
+--------------------------------
+
+- When dieing while the console window is open, the inputstate controls are not enabled again when the level restarts.

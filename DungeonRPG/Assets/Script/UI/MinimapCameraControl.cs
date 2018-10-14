@@ -10,6 +10,11 @@ namespace DungeonRPG.UI
     public class MinimapCameraControl : MonoBehaviour
     {
         /// <summary>
+        /// Input enable / disable value.
+        /// </summary>
+        public static bool INPUT_ENABLED = true;
+
+        /// <summary>
         /// The minimap camera.
         /// </summary>
         [Tooltip("The minimap camera.")]
@@ -45,20 +50,23 @@ namespace DungeonRPG.UI
         /// </summary>
         private void Update()
         {
-            // Minimap zoom
-            if (Input.GetButtonDown("Minimap Zoom In"))
-                this.MinimapCamera.orthographicSize -= this.StepSize;
-            if (Input.GetButtonDown("Minimap Zoom Out"))
-                this.MinimapCamera.orthographicSize += this.StepSize;
-            if (this.MinimapCamera.orthographicSize > this.UpperZoomBorder)
-                this.MinimapCamera.orthographicSize = this.UpperZoomBorder;
-            if (this.MinimapCamera.orthographicSize < this.LowerZoomBorder)
-                this.MinimapCamera.orthographicSize = this.LowerZoomBorder;
-            // Minimap toggle
-            if (Input.GetButtonDown("Minimap Toggle"))
+            if (INPUT_ENABLED)
             {
-                this.MinimapRenderObject.SetActive(!this.MinimapRenderObject.activeSelf);
-                this.MinimapCamera.enabled = !this.MinimapCamera.enabled;
+                // Minimap zoom
+                if (Input.GetButtonDown("Minimap Zoom In"))
+                    this.MinimapCamera.orthographicSize -= this.StepSize;
+                if (Input.GetButtonDown("Minimap Zoom Out"))
+                    this.MinimapCamera.orthographicSize += this.StepSize;
+                if (this.MinimapCamera.orthographicSize > this.UpperZoomBorder)
+                    this.MinimapCamera.orthographicSize = this.UpperZoomBorder;
+                if (this.MinimapCamera.orthographicSize < this.LowerZoomBorder)
+                    this.MinimapCamera.orthographicSize = this.LowerZoomBorder;
+                // Minimap toggle
+                if (Input.GetButtonDown("Minimap Toggle"))
+                {
+                    this.MinimapRenderObject.SetActive(!this.MinimapRenderObject.activeSelf);
+                    this.MinimapCamera.enabled = !this.MinimapCamera.enabled;
+                }
             }
         }
     }

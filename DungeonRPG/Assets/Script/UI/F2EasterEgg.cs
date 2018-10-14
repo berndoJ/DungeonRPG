@@ -8,6 +8,11 @@ namespace DungeonRPG.UI
     public class F2EasterEgg : MonoBehaviour
     {
         /// <summary>
+        /// Input enable / disable value.
+        /// </summary>
+        public static bool INPUT_ENABLED = true;
+
+        /// <summary>
         /// Text of the easter egg.
         /// </summary>
         public Text F2EasterEggText;
@@ -25,7 +30,7 @@ namespace DungeonRPG.UI
         /// </summary>
         private void Update()
         {
-            if (Input.GetButtonDown("Whats here"))
+            if (INPUT_ENABLED && Input.GetButtonDown("Whats here"))
             {
                 this.F2EasterEggText.enabled = !this.F2EasterEggText.enabled;
             }

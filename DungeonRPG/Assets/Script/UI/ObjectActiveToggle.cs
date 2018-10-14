@@ -9,6 +9,11 @@ namespace DungeonRPG.UI
     public class ObjectActiveToggle : MonoBehaviour
     {
         /// <summary>
+        /// Input enable / disable value.
+        /// </summary>
+        public static bool INPUT_ENABLED = true;
+
+        /// <summary>
         /// The target of the toggle.
         /// </summary>
         [Tooltip("The target of the toggle.")]
@@ -39,7 +44,7 @@ namespace DungeonRPG.UI
         /// </summary>
         private void Update()
         {
-            if (Input.GetButtonDown(this.ToggleButton))
+            if (INPUT_ENABLED && Input.GetButtonDown(this.ToggleButton))
             {
                 this.Toggled = !this.Toggled;
                 this.Target.SetActive(this.Toggled);
