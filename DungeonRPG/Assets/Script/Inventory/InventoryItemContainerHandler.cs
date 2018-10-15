@@ -120,6 +120,9 @@ namespace DungeonRPG.ItemContainer
             }
         }
 
+        /// <summary>
+        /// Sub function for dropping item (subcode function for <see cref="OnDrop(PointerEventData)"/> and <see cref="OnDisable"/>.
+        /// </summary>
         private void DropItemSubFunc()
         {
             // Drop the item
