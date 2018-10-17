@@ -6,6 +6,7 @@ using System.Text;
 using DungeonRPG.Entities;
 using DungeonRPG.UI;
 using DungeonRPG.CommandEnvironment;
+using DungeonRPG.ItemContainer;
 
 namespace DungeonRPG.InputUtils
 {
@@ -19,7 +20,8 @@ namespace DungeonRPG.InputUtils
         FPS_COUNTER,
         MINIMAP_CAMERA_CONTROL,
         INVENTORY_TOGGLE,
-        GAME_CONSOLE
+        GAME_CONSOLE,
+        HOTBAR_MANAGER
     }
 
     public static class InputManager
@@ -50,6 +52,9 @@ namespace DungeonRPG.InputUtils
                     break;
                 case GameInputClass.GAME_CONSOLE:
                     GameConsole.INPUT_ENABLED = state;
+                    break;
+                case GameInputClass.HOTBAR_MANAGER:
+                    HotbarManager.INPUT_ENABLED = state;
                     break;
                 default:
                     break;
