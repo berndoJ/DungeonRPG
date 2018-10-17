@@ -1,6 +1,6 @@
 # DungeonRPG
 (The final name of the project is not decided yet.)
-A 2D-Dungeon-RPG game made in Unity.
+A 2D-Dungeon-RPG game made in Unity. (Currently WIP)
 
 # Content
 A player discovers a dungeon. There are different levels with different themes, enemies, ...
