@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a6d64d2c59a7f843914611991a222f1, type: 3}
+  m_Name: axe_copper
+  m_EditorClassIdentifier: 
+  mDisplayName: Copper Axe
+  mUIDString: axe_copper
+  mMaxStackSize: 1
+  mIcon: {fileID: 21300000, guid: c66c196a6952bfc478d28ec94eab0c71, type: 3}
+  mItemEntityPrefab: {fileID: 1060605832118256, guid: 11eb5b298299aea4bb39f6d6d1bd9f13,
+    type: 2}

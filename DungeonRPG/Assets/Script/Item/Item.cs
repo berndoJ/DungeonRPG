@@ -178,9 +178,10 @@ namespace DungeonRPG.Items
         /// </summary>
         private static void UpdateKnownItemsList()
         {
-            CurrentlyKnownItems = AssetDatabase.FindAssets("t:" + typeof(Item).Name)
-                    .Select(guid => AssetDatabase.LoadAssetAtPath<Item>(AssetDatabase.GUIDToAssetPath(guid)))
-                    .ToList();
+            CurrentlyKnownItems = Resources.LoadAll<Item>("Items").ToList();
+            //CurrentlyKnownItems = AssetDatabase.FindAssets("t:" + typeof(Item).Name)
+            //        .Select(guid => AssetDatabase.LoadAssetAtPath<Item>(AssetDatabase.GUIDToAssetPath(guid)))
+            //        .ToList();
         }
 
         #endregion
