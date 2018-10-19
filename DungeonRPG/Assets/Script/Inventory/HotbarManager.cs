@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DungeonRPG.Items;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,6 +31,18 @@ namespace DungeonRPG.ItemContainer
         [SerializeField]
         [Tooltip("The hotbar overlay GUI manager.")]
         private HotbarOverlayGUIManager mOverlayManager;
+
+        /// <summary>
+        /// The inventory of which the overlay belongs to.
+        /// </summary>
+        [Tooltip("The inventory of which the overlay belongs to.")]
+        public Inventory OverlayInventory;
+
+        /// <summary>
+        /// The offset of the hotbar in the inventory.
+        /// </summary>
+        [Tooltip("The offset of the hotbar in the inventory.")]
+        public int HotbarInvIndexOffset;
 
         /// <summary>
         /// The main selected hotbar index.
@@ -108,6 +121,28 @@ namespace DungeonRPG.ItemContainer
                         this.SecondaryHotbarIndex++;
                 }
             }
+        }
+
+        #endregion
+
+        #region Methods
+
+        /// <summary>
+        /// Gets the main held itemstack.
+        /// </summary>
+        /// <returns>The main held itemstack.</returns>
+        public ItemStack GetMainHeldItemStack()
+        {
+            return null;
+        }
+
+        /// <summary>
+        /// Gets the secondary held itemstack.
+        /// </summary>
+        /// <returns>The secondary held itemstack.</returns>
+        public ItemStack GetSecondaryHeldItemStack()
+        {
+            return null;
         }
 
         #endregion
