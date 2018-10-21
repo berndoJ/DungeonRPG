@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Script\Camera\CameraFollow.cs" />
+    <Compile Include="Assets\Script\CommandEnvironment\Commands\GameCommandSetHealth.cs" />
     <Compile Include="Assets\Script\CommandEnvironment\Commands\GameCommandClear.cs" />
     <Compile Include="Assets\Script\CommandEnvironment\Commands\GameCommandGiveItem.cs" />
     <Compile Include="Assets\Script\CommandEnvironment\Commands\GameCommandGodMode.cs" />
@@ -79,6 +80,8 @@
     <Compile Include="Assets\Script\Event\PlayerJumpEventArgs.cs" />
     <Compile Include="Assets\Script\Event\PlayerLandEventArgs.cs" />
     <Compile Include="Assets\Script\Event\PlayerMoveEventArgs.cs" />
+    <Compile Include="Assets\Script\FileManagement\GameSaveInfo.cs" />
+    <Compile Include="Assets\Script\FileManagement\GameSaveManager.cs" />
     <Compile Include="Assets\Script\InputUtils\InputManager.cs" />
     <Compile Include="Assets\Script\Inventory\HotbarManager.cs" />
     <Compile Include="Assets\Script\Inventory\HotbarOverlayGUIManager.cs" />
@@ -90,6 +93,9 @@
     <Compile Include="Assets\Script\Inventory\InventorySlotRenderer.cs" />
     <Compile Include="Assets\Script\Item\Item.cs" />
     <Compile Include="Assets\Script\Item\ItemStack.cs" />
+    <Compile Include="Assets\Script\LevelManagement\LevelManager.cs" />
+    <Compile Include="Assets\Script\LevelManagement\SerializedPlayer.cs" />
+    <Compile Include="Assets\Script\LevelManagement\Vector3Serializable.cs" />
     <Compile Include="Assets\Script\Player\CharacterController2D.cs" />
     <Compile Include="Assets\Script\Player\PlayerBehavior.cs" />
     <Compile Include="Assets\Script\UI\F2EasterEgg.cs" />

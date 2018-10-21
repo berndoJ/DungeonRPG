@@ -42,8 +42,6 @@ namespace DungeonRPG.ItemContainer
 
         #endregion
 
-        public Item testItm;
-
         #region Behavior Methods
 
         /// <summary>
@@ -111,6 +109,66 @@ namespace DungeonRPG.ItemContainer
                     break;
             }
             return count;
+        }
+
+        /// <summary>
+        /// Gets a serialized version of the inventory.
+        /// </summary>
+        /// <returns>-</returns>
+        public string GetSerialized()
+        {
+            string serializedString = string.Empty;
+            foreach (InventorySlot invSlot in this.InventorySlots)
+            {
+                string itemCount = invSlot.IsEmpty ? "null" : invSlot.CurrentItemStack.ItemCount.ToString();
+                string itemUID = invSlot.IsEmpty ? "null" : invSlot.CurrentItemStack.Item.GetUID();
+                if (serializedString != string.Empty)
+                    serializedString += ":";
+                serializedString += (itemCount + "," + itemUID);
+            }
+            return serializedString;
+        }
+
+        /// <summary>
+        /// Loads a serialized version of the inventory.
+        /// </summary>
+        /// <param name="serializedString">The serialized version of the inventory.</param>
+        public void LoadFromSerialized(string serializedString)
+        {
+            List<List<string>> invSlotValues = serializedString.Split(':').Select(s => s.Split(',').ToList()).ToList();
+            if (invSlotValues.Count != this.InventorySize)
+            {
+                Debug.LogError("Tried loading inventory from serialized: Inventory slot count not matching! (" + serializedString + ")");
+                return;
+            }
+            int i = 0;
+            foreach (List<string> invSlotValue in invSlotValues)
+            {
+                if (invSlotValue.Count != 2)
+                {
+                    Debug.LogError("Tried loading inventory from serialized: Slot formatting error! (" + serializedString + ")");
+                    return;
+                }
+                uint itemCount = 0;
+                if (!uint.TryParse(invSlotValue[0], out itemCount))
+                {
+                    if (invSlotValue[0] == "null")
+                    {
+                        this.InventorySlots[i].CurrentItemStack = null;
+                        continue;
+                    }
+                    Debug.LogError("Tried loading inventory from serialized: Slot item count formatting error! (" + serializedString + ")");
+                    return;
+                }
+                string itemUID = invSlotValue[1];
+                Item item = Item.GetItemByUID(itemUID);
+                if (item == null)
+                {
+                    Debug.LogError("Tried loading inventory from serialized: Slot item uid does not exist! (" + serializedString + ")");
+                    return;
+                }
+                this.InventorySlots[i].CurrentItemStack = new ItemStack(item, itemCount);
+            }
         }
 
         #endregion

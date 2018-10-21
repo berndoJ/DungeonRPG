@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 using DungeonRPG.Event;
+using DungeonRPG.ItemContainer;
 
 namespace DungeonRPG.Entities
 {
@@ -34,6 +35,12 @@ namespace DungeonRPG.Entities
         /// </summary>
         [Tooltip("The AI of the player.")]
         public new PlayerAI AI;
+
+        /// <summary>
+        /// The player's inventory.
+        /// </summary>
+        [Tooltip("The player's inventory.")]
+        public Inventory PlayerInventory;
 
         #endregion
 
@@ -92,12 +99,18 @@ namespace DungeonRPG.Entities
         }
 
         /// <summary>
-        /// Init of this code on 1st frame.
+        /// Init on the frist frame.
         /// </summary>
         private void Start()
         {
-            this.Health = this.MaxHealth;
-            this.Energy = this.MaxEnergy;
+            if (this.Health == 0)
+            {
+                this.Health = this.MaxHealth;
+            }
+            if (this.Energy == 0)
+            {
+                this.Energy = this.MaxEnergy;
+            }
         }
 
         #endregion

@@ -90,6 +90,19 @@ namespace DungeonRPG.Entities
         }
         private int mHealth;
 
+        #region Behavior Methods
+
+        /// <summary>
+        /// Init on first frame.
+        /// </summary>
+        private void Start()
+        {
+            if (this.OnEntityHealthChanged != null)
+                this.OnEntityHealthChanged(this, new EntityHealthChangedEventArgs(0, EntityHealthChangedType.GAINED_HEALTH, this.Health));
+        }
+
+        #endregion
+
         #region Methods
 
         /// <summary>
