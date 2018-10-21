@@ -64,6 +64,8 @@ namespace DungeonRPG.Entities
                 if (value > 100)
                     value = this.MaxEnergy;
                 float deltaEnergy = value - this.mEnergy;
+                if (this.GodMode && deltaEnergy < 0)
+                    return;
                 this.mEnergy = value;
                 PlayerEnergyChangedType changeType = 0;
                 if (deltaEnergy > 0)

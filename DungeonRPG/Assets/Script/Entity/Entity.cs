@@ -46,6 +46,15 @@ namespace DungeonRPG.Entities
         #endregion
 
         /// <summary>
+        /// Boolean value for enabling / disabling god mode for the entity.
+        /// </summary>
+        public bool GodMode
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// The current health of the entity.
         /// </summary>
         public int Health
@@ -97,6 +106,8 @@ namespace DungeonRPG.Entities
         /// <param name="damage">The damage to deal to the entities health.</param>
         public void DamageGeneric(int damage)
         {
+            if (this.GodMode)
+                return;
             this.Health -= damage;
         }
 

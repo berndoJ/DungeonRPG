@@ -29,10 +29,10 @@ public class LightFactory : MonoBehaviour
                 tileLightObj.transform.parent = this.LightSourceParentObj.transform;
                 Light tileLight = tileLightObj.AddComponent<Light>();
                 tileLight.type = LightType.Point;
-                tileLight.range = 10;
+                tileLight.range = 5F;
                 tileLight.color = new Color(231F / 255, 191F / 255, 74F / 255);
                 tileLight.renderMode = LightRenderMode.ForcePixel;
-                tileLight.intensity = 3;
+                tileLight.intensity = 4F;
                 tileLight.transform.position = this.LightSourceTilemap.CellToWorld(tilePos) + new Vector3(0.5F, 0.5F, -0.6F);
             }
         }
