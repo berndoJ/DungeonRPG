@@ -57,6 +57,7 @@
     <Compile Include="Assets\Script\Camera\CameraFollow.cs" />
     <Compile Include="Assets\Script\CommandEnvironment\Commands\GameCommandClear.cs" />
     <Compile Include="Assets\Script\CommandEnvironment\Commands\GameCommandGiveItem.cs" />
+    <Compile Include="Assets\Script\CommandEnvironment\Commands\GameCommandGodMode.cs" />
     <Compile Include="Assets\Script\CommandEnvironment\Commands\GameCommandHelp.cs" />
     <Compile Include="Assets\Script\CommandEnvironment\Commands\GameCommandListItems.cs" />
     <Compile Include="Assets\Script\CommandEnvironment\GameConsole.cs" />
@@ -94,6 +95,7 @@
     <Compile Include="Assets\Script\UI\F2EasterEgg.cs" />
     <Compile Include="Assets\Script\UI\FPSCounter.cs" />
     <Compile Include="Assets\Script\UI\InventoryToggle.cs" />
+    <Compile Include="Assets\Script\UI\MainMenuUI\MainMenuUIManager.cs" />
     <Compile Include="Assets\Script\UI\MinimapCameraControl.cs" />
     <Compile Include="Assets\Script\UI\ObjectFollowText.cs" />
     <Compile Include="Assets\Script\UI\PlayerDamageDisplay.cs" />
@@ -115,7 +117,6 @@
     <Compile Include="Assets\Tilemap\Tiles\Weighted Random Tile\WeightedRandomTile.cs" />
     <None Include="Assets\Font\UbuntuFont\README.txt" />
     <None Include="Assets\Font\UbuntuFont\LICENCE-FAQ.txt" />
-    <Compile Include="Assets\Script\CommandEnvironment\Commands\GameCommandGodMode.cs" />
     <None Include="Assets\Tilemap\Tiles\Rule Tile\ScriptTemplates\NewCustomRuleTile.cs.txt" />
     <None Include="Assets\Tilemap\Brushes\Tint Brush Smooth\Shaders\TintedTilemap.shader" />
     <None Include="Assets\Font\UbuntuFont\LICENCE.txt" />
