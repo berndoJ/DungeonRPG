@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DungeonRPG.CommandEnvironment;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,16 +8,17 @@ using UnityEngine.SceneManagement;
 
 namespace DungeonRPG.UI.MainMenu
 {
-    public class MainMenuUIManager : MonoBehaviour
+    public class TitleMenuUIManager : MonoBehaviour
     {
         #region Button Click Handlers
-
+        
         /// <summary>
-        /// Gets invoked when the button "New Game" got clicked.
+        /// Gets invoked when the quit button has been clicked.
         /// </summary>
-        public void OnNewGameButtonClick()
+        public void QuitButtonClick()
         {
-            SceneManager.LoadScene("Level0");
+            Debug.Log("Quitting game.");
+            Application.Quit();
         }
 
         #endregion

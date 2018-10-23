@@ -69,7 +69,7 @@ namespace DungeonRPG.FileManagement
                     FileInfo saveFileInfo = new FileInfo(saveFilePath);
                     if (saveFileInfo.Extension == ".sda")
                     {
-                        saveUIDs.Add(saveFileInfo.Name);
+                        saveUIDs.Add(saveFileInfo.Name.Substring(0, saveFileInfo.Name.Length - saveFileInfo.Extension.Length));
                     }
                 }
                 catch (Exception ex)
