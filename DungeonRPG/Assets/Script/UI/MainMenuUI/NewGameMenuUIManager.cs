@@ -5,6 +5,8 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
 
+using DungeonRPG.FileManagement;
+
 namespace DungeonRPG.UI.MainMenu
 {
     public class NewGameMenuUIManager : MonoBehaviour
@@ -13,16 +15,20 @@ namespace DungeonRPG.UI.MainMenu
         /// The input field of the name.
         /// </summary>
         [Tooltip("The input field of the name.")]
-        public Text GameNameInputField;
+        public InputField GameNameInputField;
 
         #region Button Click Handlers
 
+        /// <summary>
+        /// Gets invoked when the create game button gets clicked.
+        /// </summary>
         public void CreateGameButtonClick()
         {
             string gameName = this.GameNameInputField.text;
             if (!LevelNameTextValidator.FullyVerifyGameName(gameName))
                 return;
-
+            Debug.Log("Creating new Game: " + gameName);
+            GameSaveManager.LoadNewGame(gameName);
         }
 
         #endregion

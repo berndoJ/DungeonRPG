@@ -28,6 +28,9 @@ namespace DungeonRPG.UI.MainMenu
         /// </summary>
         private static Regex CharValidationRegex = new Regex(@"^[a-z\d\s]+$", RegexOptions.IgnoreCase);
 
+        /// <summary>
+        /// A list of loaded safe game uids.
+        /// </summary>
         public static List<string> LoadedSafeUIDs;
 
         #region Behavior Methods

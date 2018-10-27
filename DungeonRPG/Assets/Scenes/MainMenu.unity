@@ -14373,7 +14373,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &514816683
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15364,13 +15364,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1168133225}
+  - component: {fileID: 1168133226}
   m_Layer: 5
   m_Name: NewGameMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1168133225
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15394,6 +15395,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1168133226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1168133224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70c275d98bc52cd4480d1ce33c5d7f8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameNameInputField: {fileID: 540948399}
 --- !u!224 &1183498380 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224145468350044874, guid: ea0443ca0b94858418dd5270c100e4da,
@@ -15989,6 +16002,16 @@ Prefab:
         type: 2}
       propertyPath: m_Interactable
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114221202898909408, guid: ea0443ca0b94858418dd5270c100e4da,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1168133226}
+    - target: {fileID: 114221202898909408, guid: ea0443ca0b94858418dd5270c100e4da,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CreateGameButtonClick
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea0443ca0b94858418dd5270c100e4da, type: 2}

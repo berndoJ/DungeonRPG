@@ -8,6 +8,18 @@ using DungeonRPG.Event;
 
 namespace DungeonRPG.Entities
 {
+    /// <summary>
+    /// The player's AI class. This class is basically
+    /// the player controller class.
+    /// </summary>
+    /// <remarks>
+    /// Copyright (c) 2018 by BerndorJ / Johannes Berndorfer
+    /// 
+    /// Functional parts of this class (w.o. parent classes):
+    /// - Handles properties of player movements.
+    /// - Controlls the physical object of the player.
+    /// - Takes player inputs for movement.
+    /// </remarks>
     public class PlayerAI : MonoBehaviour, IEntityAI
     {
         #region Constants

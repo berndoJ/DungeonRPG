@@ -10,8 +10,17 @@ using DungeonRPG.ItemContainer;
 namespace DungeonRPG.Entities
 {
     /// <summary>
-    /// This class controlls all the movements done by the player.
+    /// This class is the base behavior class for the player.
+    /// It handles all tasks handled by an entity as well as
+    /// extra tasks proposed by the player.
     /// </summary>
+    /// <remarks>
+    /// Copyright (c) 2018 by BerndoJ / Johannes Berndorfer
+    /// 
+    /// Functional parts of this class (w.o. parent classes):
+    /// - Player energy handling
+    /// - (Temp) Handles player death and reload of scene.
+    /// </remarks>
     public class Player : Entity
     {
         #region Property Fields
