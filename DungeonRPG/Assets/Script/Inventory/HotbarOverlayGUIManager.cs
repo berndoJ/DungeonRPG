@@ -6,13 +6,26 @@ using UnityEngine;
 
 namespace DungeonRPG.ItemContainer
 {
+    /// <summary>
+    /// Behavior class which manages the selection overlay on the
+    /// hotbar.
+    /// </summary>
+    /// <remarks>
+    /// Copyright (c) 2018 by Johannes Berndorfer (berndoJ)
+    /// </remarks>
     public class HotbarOverlayGUIManager : MonoBehaviour
     {
+        #region Fields
+
         /// <summary>
         /// List of all hotbar renderers.
         /// </summary>
         [Tooltip("List of all hotbar renderers.")]
         public HotbarOverlayRenderer[] HotbarOverlayRenderers;
+
+        #endregion
+
+        #region Methods
 
         /// <summary>
         /// Sets the new main selected hotbar index.
@@ -41,5 +54,7 @@ namespace DungeonRPG.ItemContainer
                 this.HotbarOverlayRenderers[index].SetEnableOverlaySecondary(true);
             }
         }
+
+        #endregion
     }
 }

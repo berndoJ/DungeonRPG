@@ -5,8 +5,17 @@ using UnityEngine;
 
 namespace DungeonRPG.Entities
 {
+    /// <summary>
+    /// Behavior class which is responsible for the damage tint on
+    /// the player when damaged.
+    /// </summary>
+    /// <remarks>
+    /// Copyright (c) 2018 by Johannes Berndorfer (berndoJ)
+    /// </remarks>
     public class PlayerDamageTint : MonoBehaviour
     {
+        #region Fields
+
         /// <summary>
         /// The sprite renderer of the player.
         /// </summary>
@@ -21,6 +30,10 @@ namespace DungeonRPG.Entities
         /// The color of the player to be tinted to.
         /// </summary>
         public Color TintColor = new Color(255F, 144F, 144F);
+
+        #endregion
+
+        #region Properties
 
         /// <summary>
         /// Bool indicating if damage tint should be shown.
@@ -38,6 +51,10 @@ namespace DungeonRPG.Entities
         private bool m_mShowTint;
         private bool mIsShowingTint;
 
+        #endregion
+
+        #region Behavior Methods
+
         /// <summary>
         /// Init of this code.
         /// </summary>
@@ -46,18 +63,9 @@ namespace DungeonRPG.Entities
             this.Player.OnEntityHealthChanged += this.OnEntityHealthChanged;
         }
 
-        /// <summary>
-        /// Gets invoked when the player's health changes.
-        /// </summary>
-        /// <param name="sender">The sender of the event.</param>
-        /// <param name="e">The event args.</param>
-        public void OnEntityHealthChanged(object sender, EntityHealthChangedEventArgs e)
-        {
-            if (e.HealthChangeType == EntityHealthChangedType.LOST_HEALTH)
-            {
-                this.mShowTint = true;
-            }
-        }
+        #endregion
+
+        #region Methods
 
         /// <summary>
         /// Coroutine showing the damage tint.
@@ -76,5 +84,23 @@ namespace DungeonRPG.Entities
             this.mIsShowingTint = false;
         }
 
+        #endregion
+
+        #region Event Delegates
+
+        /// <summary>
+        /// Gets invoked when the player's health changes.
+        /// </summary>
+        /// <param name="sender">The sender of the event.</param>
+        /// <param name="e">The event args.</param>
+        public void OnEntityHealthChanged(object sender, EntityHealthChangedEventArgs e)
+        {
+            if (e.HealthChangeType == EntityHealthChangedType.LOST_HEALTH)
+            {
+                this.mShowTint = true;
+            }
+        }
+
+        #endregion
     }
 }

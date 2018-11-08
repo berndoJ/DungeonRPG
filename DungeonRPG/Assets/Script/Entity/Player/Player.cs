@@ -15,7 +15,7 @@ namespace DungeonRPG.Entities
     /// extra tasks proposed by the player.
     /// </summary>
     /// <remarks>
-    /// Copyright (c) 2018 by BerndoJ / Johannes Berndorfer
+    /// Copyright (c) 2018 by Johannes Berndorfer (berndoJ)
     /// 
     /// Functional parts of this class (w.o. parent classes):
     /// - Player energy handling

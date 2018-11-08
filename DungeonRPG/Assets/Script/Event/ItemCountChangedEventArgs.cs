@@ -3,11 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-
 namespace DungeonRPG.Event
 {
+    /// <summary>
+    /// Event argument class for the ItemCountChanged event.
+    /// </summary>
+    /// <remarks>
+    /// Copyright (c) 2018 by Johannes Berndorfer (berndoJ)
+    /// </remarks>
     public class ItemCountChangedEventArgs : EventArgs
     {
+        #region Properties
+
         /// <summary>
         /// The new item count.
         /// </summary>
@@ -37,6 +44,10 @@ namespace DungeonRPG.Event
             }
         }
 
+        #endregion
+
+        #region Constructor
+
         /// <summary>
         /// Creates a new instnace of this class.
         /// </summary>
@@ -47,5 +58,7 @@ namespace DungeonRPG.Event
             this.NewItemCount = newItemCount;
             this.OldItemCount = oldItemCount;
         }
+
+        #endregion
     }
 }

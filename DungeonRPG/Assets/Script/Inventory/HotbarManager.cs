@@ -7,6 +7,12 @@ using UnityEngine;
 
 namespace DungeonRPG.ItemContainer
 {
+    /// <summary>
+    /// Behavior class which is the management class for the hotbar.
+    /// </summary>
+    /// <remarks>
+    /// Coypright (c) 2018 by Johannes Berndorfer (berndoJ)
+    /// </remarks>
     public class HotbarManager : MonoBehaviour
     {
         #region Static Fields
@@ -17,6 +23,8 @@ namespace DungeonRPG.ItemContainer
         public static bool INPUT_ENABLED = true;
 
         #endregion
+
+        #region Fields
 
         /// <summary>
         /// Count of hotbar slots.
@@ -43,6 +51,10 @@ namespace DungeonRPG.ItemContainer
         /// </summary>
         [Tooltip("The offset of the hotbar in the inventory.")]
         public int HotbarInvIndexOffset;
+
+        #endregion
+
+        #region Properties
 
         /// <summary>
         /// The main selected hotbar index.
@@ -85,6 +97,8 @@ namespace DungeonRPG.ItemContainer
             }
         }
         private int mSecondaryHotbarIndex;
+
+        #endregion
 
         #region Behavior Methods
 

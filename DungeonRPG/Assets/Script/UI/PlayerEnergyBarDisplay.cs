@@ -8,8 +8,16 @@ using DungeonRPG.Event;
 
 namespace DungeonRPG.UI
 {
+    /// <summary>
+    /// Behavior class which controls the energy bar display.
+    /// </summary>
+    /// <remarks>
+    /// Copyright (c) 2018 by Johannes Berndorfer (berndoJ)
+    /// </remarks>
     public class PlayerEnergyBarDisplay : MonoBehaviour
     {
+        #region Fields
+
         /// <summary>
         /// The player of which the health should be displayed.
         /// </summary>
@@ -20,6 +28,10 @@ namespace DungeonRPG.UI
         /// </summary>
         public Image HealthBarImage;
 
+        #endregion
+
+        #region Behavior Methods
+
         /// <summary>
         /// Init of this code.
         /// </summary>
@@ -27,6 +39,10 @@ namespace DungeonRPG.UI
         {
             this.Player.OnPlayerEnergyChanged += this.OnPlayerEnergyChanged;
         }
+
+        #endregion
+
+        #region Event Delegates
 
         /// <summary>
         /// Gets invoked when the energy of the player attached changed.
@@ -37,5 +53,7 @@ namespace DungeonRPG.UI
         {
             this.HealthBarImage.fillAmount = (float)e.NewEnergy / 100F;
         }
+
+        #endregion
     }
 }

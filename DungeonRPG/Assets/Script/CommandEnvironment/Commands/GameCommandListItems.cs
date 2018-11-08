@@ -8,6 +8,13 @@ using DungeonRPG.Items;
 
 namespace DungeonRPG.CommandEnvironment.Commands
 {
+    /// <summary>
+    /// Game Command:
+    /// Lists all available / loaded items in the game.
+    /// </summary>
+    /// <remarks>
+    /// Copyright (c) 2018 by Johannes Berndorfer (berndoJ)
+    /// </remarks>
     public class GameCommandListItems : IGameCommand
     {
         /// <summary>

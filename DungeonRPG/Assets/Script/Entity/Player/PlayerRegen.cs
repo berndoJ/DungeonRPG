@@ -7,8 +7,17 @@ using UnityEngine;
 
 namespace DungeonRPG.Entities
 {
+    /// <summary>
+    /// A behavior class which controls the players energy
+    /// regeneration.
+    /// </summary>
+    /// <remarks>
+    /// Copyright (c) 2018 by Johannes Berndorfer (berndoJ)
+    /// </remarks>
     public class PlayerRegen : MonoBehaviour
     {
+        #region Fields
+
         /// <summary>
         /// The player.
         /// </summary>
@@ -29,6 +38,10 @@ namespace DungeonRPG.Entities
         [Tooltip("Value indicating if the player should only regenerate if he is standing still.")]
         public bool OnlyRegenWhenStanding = true;
 
+        #endregion
+
+        #region Behavior Methods
+
         /// <summary>
         /// Game loop.
         /// </summary>
@@ -39,5 +52,7 @@ namespace DungeonRPG.Entities
                 this.Player.Energy += this.EnergyRegen;
             }
         }
+
+        #endregion
     }
 }

@@ -4,8 +4,16 @@ using UnityEngine;
 
 namespace DungeonRPG.UI
 {
+    /// <summary>
+    /// Generic behavior class which makes a text follow an object (text on GUI, object in world)
+    /// </summary>
+    /// <remarks>
+    /// Copyright (c) 2018 by Johannes Berndorfer (berndoJ)
+    /// </remarks>
     public class ObjectFollowText : MonoBehaviour
     {
+        #region Fields
+
         /// <summary>
         /// The target object of the follow text.
         /// </summary>
@@ -51,6 +59,10 @@ namespace DungeonRPG.UI
         /// </summary>
         private Transform mCameraTransform;
 
+        #endregion
+
+        #region Behavior Methods
+
         /// <summary>
         /// Init of this code.
         /// </summary>
@@ -84,6 +96,7 @@ namespace DungeonRPG.UI
                 this.mCurrentObjectTransform.position = this.mCameraInUse.WorldToScreenPoint(this.TargetObject.position + this.ObjectOffset);
             }
         }
-    }
 
+        #endregion
+    }
 }

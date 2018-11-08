@@ -8,8 +8,16 @@ using DungeonRPG.Event;
 
 namespace DungeonRPG.UI
 {
+    /// <summary>
+    /// Behavior class which controls the health display text.
+    /// </summary>
+    /// <remarks>
+    /// Copyright (c) 2018 by Johannes Berndorfer (berndoJ)
+    /// </remarks>
     public class PlayerHealthDisplay : MonoBehaviour
     {
+        #region Fields
+
         /// <summary>
         /// The player of which the health should be displayed.
         /// </summary>
@@ -20,6 +28,10 @@ namespace DungeonRPG.UI
         /// </summary>
         public Text HealthDisplayText;
 
+        #endregion
+
+        #region Behavior Methods
+
         /// <summary>
         /// Init of this code.
         /// </summary>
@@ -27,6 +39,10 @@ namespace DungeonRPG.UI
         {
             this.Player.OnEntityHealthChanged += this.OnEntityHealthChanged;
         }
+
+        #endregion
+
+        #region Event Delegates
 
         /// <summary>
         /// Gets invoked when the health of the player attached changed.
@@ -37,6 +53,7 @@ namespace DungeonRPG.UI
         {
             this.HealthDisplayText.text = string.Format("{0} / {1}", e.NewHealth, Player.MaxHealth);
         }
-    }
 
+        #endregion
+    }
 }

@@ -6,8 +6,18 @@ using DungeonRPG.Entities;
 
 namespace DungeonRPG.WorldFeature
 {
+    /// <summary>
+    /// Generic behavior class which can be applied to a game object which contains a
+    /// collider in trigger mode. It deals damage to the player if the player triggers
+    /// the collider. The damage can be defined.
+    /// </summary>
+    /// <remarks>
+    /// Copyright (c) 2018 by Johannes Berndorfer (berndoJ)
+    /// </remarks>
     public class ColliderTriggerDamager : MonoBehaviour
     {
+        #region Fields
+
         /// <summary>
         /// The collider of the player.
         /// </summary>
@@ -32,6 +42,10 @@ namespace DungeonRPG.WorldFeature
         /// The damage to be dealt to the player upon exiting the collider.
         /// </summary>
         public int ExitDamageDealt;
+
+        #endregion
+
+        #region Behavior Methods
 
         /// <summary>
         /// Event that gets triggered when some rigidbody enters the collider.
@@ -68,5 +82,7 @@ namespace DungeonRPG.WorldFeature
                 this.Player.DamageGeneric(this.ExitDamageDealt);
             }
         }
+
+        #endregion
     }
 }

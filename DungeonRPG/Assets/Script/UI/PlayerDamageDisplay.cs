@@ -8,8 +8,16 @@ using DungeonRPG.Event;
 
 namespace DungeonRPG.UI
 {
+    /// <summary>
+    /// Behavior class which controls the player damage display text.
+    /// </summary>
+    /// <remarks>
+    /// Copyright (c) 2018 by Johannes Berndorfer (berndoJ)
+    /// </remarks>
     public class PlayerDamageDisplay : MonoBehaviour
     {
+        #region Fields
+
         /// <summary>
         /// The player object reference.
         /// </summary>
@@ -19,6 +27,10 @@ namespace DungeonRPG.UI
         /// The text object to display the text on.
         /// </summary>
         public Text DamageDisplayText;
+
+        #endregion
+
+        #region Properties
 
         /// <summary>
         /// Integer containing the damage amount to be displayed on screen.
@@ -37,6 +49,10 @@ namespace DungeonRPG.UI
         }
         private int m_mDamageToDisplay;
 
+        #endregion
+
+        #region Behavior Methods
+
         /// <summary>
         /// Init of this code.
         /// </summary>
@@ -45,6 +61,10 @@ namespace DungeonRPG.UI
             this.Player.OnEntityHealthChanged += this.OnEntityHealthChanged;
             this.DamageDisplayText.enabled = false;
         }
+
+        #endregion
+
+        #region Event Delegates
 
         /// <summary>
         /// Gets invoked when the player takes damage.
@@ -57,6 +77,10 @@ namespace DungeonRPG.UI
                 this.mDamageToDisplay += Mathf.Abs(e.HealthChangeDelta);
             }
         }
+
+        #endregion
+
+        #region Methods
 
         /// <summary>
         /// Coroutine that handles the display and stacking of the damage values.
@@ -100,5 +124,7 @@ namespace DungeonRPG.UI
             this.DamageDisplayText.CrossFadeAlpha(1F, 0F, false);
             this.DamageDisplayText.text = string.Format("-{0}", damage);
         }
+
+        #endregion
     }
 }

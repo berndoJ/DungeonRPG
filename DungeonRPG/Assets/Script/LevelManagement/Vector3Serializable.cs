@@ -6,9 +6,17 @@ using UnityEngine;
 
 namespace DungeonRPG.LevelManagement
 {
+    /// <summary>
+    /// A serializable data structure which holds the information of a Vector3 object.
+    /// </summary>
+    /// <remarks>
+    /// Copyright (c) 2018 by Johannes Berndorfer (berndoJ)
+    /// </remarks>
     [Serializable]
     public struct Vector3Serializable
     {
+        #region Fields
+
         /// <summary>
         /// X
         /// </summary>
@@ -23,6 +31,10 @@ namespace DungeonRPG.LevelManagement
         /// Z
         /// </summary>
         public float z;
+
+        #endregion
+
+        #region Constructor
 
         /// <summary>
         /// Creates a new value of this struct.
@@ -48,6 +60,10 @@ namespace DungeonRPG.LevelManagement
             this.z = vector.z;
         }
 
+        #endregion
+
+        #region Methods
+
         /// <summary>
         /// Gets the vector 3 for this value.
         /// </summary>
@@ -56,5 +72,7 @@ namespace DungeonRPG.LevelManagement
         {
             return new Vector3(this.x, this.y, this.z);
         }
+
+        #endregion
     }
 }

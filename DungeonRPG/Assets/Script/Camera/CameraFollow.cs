@@ -2,9 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Behavior class which, when attached to a camera, controls the camera
+/// to follow the object specified (e.g. the player)
+/// </summary>
+/// <remarks>
+/// Copyright (c) 2018 by Johannes Berndorfer (berndoJ)
+/// </remarks>
 public class CameraFollow : MonoBehaviour
 {
-
     /// <summary>
     /// The target of the camera.
     /// </summary>
@@ -50,7 +56,9 @@ public class CameraFollow : MonoBehaviour
     /// </summary>
     private Vector3 mCameraVelocity = Vector3.zero;
 
-	/// <summary>
+    #region Behavior Methods
+
+    /// <summary>
     /// Game loop.
     /// </summary>
 	public void FixedUpdate()
@@ -63,4 +71,5 @@ public class CameraFollow : MonoBehaviour
             actualCameraPos.z);
     }
 
+    #endregion
 }

@@ -9,11 +9,15 @@ using DungeonRPG.Event;
 namespace DungeonRPG.Entities
 {
     /// <summary>
-    /// Base class for entities.
+    /// Base class for all entities in the game. The player class 
+    /// also is deriving from this class.
     /// </summary>
+    /// <remarks>
+    /// Copyright (c) 2018 by Johannes Berndorfer (berndoJ)
+    /// </remarks>
     public class Entity : MonoBehaviour
     {
-        #region Property Fields
+        #region Fields
 
         /// <summary>
         /// Maximum health of the entity.
@@ -44,6 +48,8 @@ namespace DungeonRPG.Entities
         public event EventHandler<EntityDieEventArgs> OnEntityDie;
 
         #endregion
+
+        #region Properties
 
         /// <summary>
         /// Boolean value for enabling / disabling god mode for the entity.
@@ -89,6 +95,8 @@ namespace DungeonRPG.Entities
             }
         }
         private int mHealth;
+
+        #endregion
 
         #region Behavior Methods
 

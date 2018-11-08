@@ -92,7 +92,6 @@
      <Compile Include="Assets\Script\Inventory\InventorySlotRenderer.cs" />
      <Compile Include="Assets\Script\Item\Item.cs" />
      <Compile Include="Assets\Script\Item\ItemStack.cs" />
-     <Compile Include="Assets\Script\LevelManagement\LevelManager.cs" />
      <Compile Include="Assets\Script\LevelManagement\SerializedPlayer.cs" />
      <Compile Include="Assets\Script\LevelManagement\Vector3Serializable.cs" />
      <Compile Include="Assets\Script\Player\CharacterController2D.cs" />
@@ -100,6 +99,7 @@
      <Compile Include="Assets\Script\UI\F2EasterEgg.cs" />
      <Compile Include="Assets\Script\UI\FPSCounter.cs" />
      <Compile Include="Assets\Script\UI\InventoryToggle.cs" />
+     <Compile Include="Assets\Script\UI\MainMenuUI\GameSaveButtonLoader.cs" />
      <Compile Include="Assets\Script\UI\MainMenuUI\LevelNameTextValidator.cs" />
      <Compile Include="Assets\Script\UI\MainMenuUI\NewGameMenuUIManager.cs" />
      <Compile Include="Assets\Script\UI\MainMenuUI\TitleMenuUIManager.cs" />
@@ -132,16 +132,16 @@
      <None Include="Assets\Font\UbuntuFont\CONTRIBUTING.txt" />
      <None Include="Assets\Font\UbuntuFont\FONTLOG.txt" />
  <Reference Include="UnityEditor.StandardEvents">
- <HintPath>E:/Coding/Unity Games/DungeonRPG/DungeonRPG/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+ <HintPath>D:/Coding/Unity Games/DungeonRPG/DungeonRPG/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>E:/Coding/Unity Games/DungeonRPG/DungeonRPG/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>D:/Coding/Unity Games/DungeonRPG/DungeonRPG/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.PackageManagerUI.Editor">
- <HintPath>E:/Coding/Unity Games/DungeonRPG/DungeonRPG/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+ <HintPath>D:/Coding/Unity Games/DungeonRPG/DungeonRPG/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>E:/Coding/Unity Games/DungeonRPG/DungeonRPG/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>D:/Coding/Unity Games/DungeonRPG/DungeonRPG/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

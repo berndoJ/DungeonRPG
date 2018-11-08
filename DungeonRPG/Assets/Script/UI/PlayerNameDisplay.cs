@@ -7,8 +7,16 @@ using DungeonRPG.Entities;
 
 namespace DungeonRPG.UI
 {
+    /// <summary>
+    /// Behavior class which controls the name display text.
+    /// </summary>
+    /// <remarks>
+    /// Copyright (c) 2018 by Johannes Berndorfer (berndoJ)
+    /// </remarks>
     public class PlayerNameDisplay : MonoBehaviour
     {
+        #region Fields
+
         /// <summary>
         /// The player of which the name should be displayed.
         /// </summary>
@@ -19,6 +27,10 @@ namespace DungeonRPG.UI
         /// </summary>
         public Text PlayerNameText;
 
+        #endregion
+
+        #region Behavior Methods
+
         /// <summary>
         /// Init of this code.
         /// </summary>
@@ -26,5 +38,7 @@ namespace DungeonRPG.UI
         {
             this.PlayerNameText.text = this.Player.PlayerName;
         }
+
+        #endregion
     }
 }

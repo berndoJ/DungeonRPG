@@ -8,6 +8,16 @@ using DungeonRPG.Entities;
 
 namespace DungeonRPG.CommandEnvironment.Commands
 {
+    /// <summary>
+    /// Game Command:
+    /// Toggles god mode.
+    /// 
+    /// In god mode the player does not take any damage, except for out-of-bounds
+    /// damage. (e.g. falling off the map)
+    /// </summary>
+    /// <remarks>
+    /// Copyright (c) 2018 by Johannes Berndorfer (berndoJ)
+    /// </remarks>
     public class GameCommandGodMode : IGameCommand
     {
         /// <summary>

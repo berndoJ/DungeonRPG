@@ -7,12 +7,24 @@ using UnityEngine.UI;
 
 namespace DungeonRPG.UI
 {
+    /// <summary>
+    /// Behavior class which controls the minimap camera. (Movement and abstract rendering)
+    /// </summary>
+    /// <remarks>
+    /// Copyright (c) 2018 by Johannes Berndorfer (berndoJ)
+    /// </remarks>
     public class MinimapCameraControl : MonoBehaviour
     {
+        #region Static Fields
+
         /// <summary>
         /// Input enable / disable value.
         /// </summary>
         public static bool INPUT_ENABLED = true;
+
+        #endregion
+
+        #region Fields
 
         /// <summary>
         /// The minimap camera.
@@ -45,6 +57,10 @@ namespace DungeonRPG.UI
         [Tooltip("The lower zoom border of the camera.")]
         public float LowerZoomBorder = 3F;
 
+        #endregion
+
+        #region Behavior Methods
+
         /// <summary>
         /// Frame loop.
         /// </summary>
@@ -69,5 +85,7 @@ namespace DungeonRPG.UI
                 }
             }
         }
+
+        #endregion
     }
 }

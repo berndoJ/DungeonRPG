@@ -9,8 +9,16 @@ using UnityEngine.UI;
 
 namespace DungeonRPG.UI.MainMenu
 {
+    /// <summary>
+    /// Behavior class used to validate a level name (entered in the given InputField)
+    /// </summary>
+    /// <remarks>
+    /// Copyright (c) 2018 by Johannes Berndorfer (berndoJ)
+    /// </remarks>
     public class LevelNameTextValidator : MonoBehaviour
     {
+        #region Fields
+
         /// <summary>
         /// The inputfiled to validate the characters for.
         /// </summary>
@@ -32,6 +40,8 @@ namespace DungeonRPG.UI.MainMenu
         /// A list of loaded safe game uids.
         /// </summary>
         public static List<string> LoadedSafeUIDs;
+
+        #endregion
 
         #region Behavior Methods
 

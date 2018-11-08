@@ -10,22 +10,22 @@ using DungeonRPG.ItemContainer;
 
 namespace DungeonRPG.Entities
 {
+    /// <summary>
+    /// The behavior class which is the core of an item entity. The item
+    /// entity is not a standard entity. (Does not derive from <see cref="Entity"/>)
+    /// </summary>
+    /// <remarks>
+    /// Copyright (c) 2018 by Johannes Berndorfer (berndoJ)
+    /// </remarks>
     public class ItemEntity : MonoBehaviour
     {
+        #region Fields
+
         /// <summary>
         /// The sprite renderer of the light sprite. Needed to make the item "glow".
         /// </summary>
         [Tooltip("The sprite renderer of the light sprite. Needed to make the item \"glow\".")]
         public SpriteRenderer LightSpriteRenderer;
-
-        /// <summary>
-        /// The count of items this entity contains.
-        /// </summary>
-        public uint ItemCount
-        {
-            get;
-            set;
-        }
 
         /// <summary>
         /// The item corresponding to this entity.
@@ -39,6 +39,21 @@ namespace DungeonRPG.Entities
         /// Boolean value for enabling the blink.
         /// </summary>
         private bool mBlinkActive = false;
+
+        #endregion
+
+        #region Properties
+
+        /// <summary>
+        /// The count of items this entity contains.
+        /// </summary>
+        public uint ItemCount
+        {
+            get;
+            set;
+        }
+
+        #endregion
 
         #region Behavior Methods
 
@@ -90,7 +105,7 @@ namespace DungeonRPG.Entities
 
         #endregion
 
-        #region Coroutines
+        #region Methods
 
         /// <summary>
         /// Sprite blinking coroutine.

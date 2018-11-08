@@ -7,8 +7,17 @@ using UnityEngine.UI;
 
 namespace DungeonRPG.ItemContainer
 {
+    /// <summary>
+    /// Behavior class which is responsible for the correct rendering (abstractly)
+    /// of the hotbar selection overlay.
+    /// </summary>
+    /// <remarks>
+    /// Coypright (c) 2018 by Johannes Berndorfer (berndoJ)
+    /// </remarks>
     public class HotbarOverlayRenderer : MonoBehaviour
     {
+        #region Fields
+
         /// <summary>
         /// Prmary / main image of the solt overlay.
         /// </summary>
@@ -21,6 +30,10 @@ namespace DungeonRPG.ItemContainer
         /// </summary>
         [Tooltip("Secondary image of the solt overlay.")]
         public Image SecondaryOverlayImage;
+
+        #endregion
+
+        #region Method
 
         /// <summary>
         /// Enables / disables the main overlay image.
@@ -39,5 +52,7 @@ namespace DungeonRPG.ItemContainer
         {
             this.SecondaryOverlayImage.enabled = value;
         }
+
+        #endregion
     }
 }

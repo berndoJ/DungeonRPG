@@ -10,8 +10,17 @@ using DungeonRPG.Event;
 
 namespace DungeonRPG.ItemContainer
 {
+    /// <summary>
+    /// Behavior class which manages an inventory. This behavior can be attached
+    /// to any game object which shall contain some inventory space to store items.
+    /// </summary>
+    /// <remarks>
+    /// Copyright (c) 2018 by Johannes Berndorfer (berndoJ)
+    /// </remarks>
     public class Inventory : MonoBehaviour
     {
+        #region Fields
+
         /// <summary>
         /// The entity this inventory belongs to.
         /// </summary>
@@ -24,6 +33,10 @@ namespace DungeonRPG.ItemContainer
         [Tooltip("The size of the inventory in slots.")]
         public uint InventorySize;
 
+        #endregion
+
+        #region Properties
+
         /// <summary>
         /// All inventory slots.
         /// </summary>
@@ -32,6 +45,8 @@ namespace DungeonRPG.ItemContainer
             get;
             private set;
         }
+
+        #endregion
 
         #region Events
 

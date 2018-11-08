@@ -8,6 +8,13 @@ using UnityEngine.EventSystems;
 
 namespace DungeonRPG.ItemContainer
 {
+    /// <summary>
+    /// Behavior class which manages the logic and abstract rendering of
+    /// item containers. (container of an inventory GUI which holds items)
+    /// </summary>
+    /// <remarks>
+    /// Copyright (c) 2018 by Johannes Berndorfer (berndoJ)
+    /// </remarks>
     public class InventoryItemContainerHandler : MonoBehaviour, IDragHandler, IEndDragHandler, IDropHandler
     {
         #region Constants
@@ -19,7 +26,7 @@ namespace DungeonRPG.ItemContainer
 
         #endregion
 
-        #region Public Fields
+        #region Fields
 
         /// <summary>
         /// The slot renderer which corresponds with this item container handler.
@@ -27,15 +34,14 @@ namespace DungeonRPG.ItemContainer
         [Tooltip("The slot renderer which corresponds with this item container handler.")]
         public InventorySlotRenderer SlotRenderer;
 
-        #endregion
-
-        #region Private Fields
-
         /// <summary>
         /// Helper bool for <see cref="OnDisable"/>
         /// </summary>
         private bool mExecOnDisable = false;
 
+        /// <summary>
+        /// Boolean value which indicates if the container is currently dragged.
+        /// </summary>
         private bool mDragging = false;
 
         #endregion

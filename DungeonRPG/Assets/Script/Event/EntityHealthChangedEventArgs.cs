@@ -5,8 +5,16 @@ using System.Text;
 
 namespace DungeonRPG.Event
 {
+    /// <summary>
+    /// Event argument class for the EntityHealthChanged event.
+    /// </summary>
+    /// <remarks>
+    /// Copyright (c) 2018 by Johannes Berndorfer (berndoJ)
+    /// </remarks>
     public class EntityHealthChangedEventArgs : EventArgs
     {
+        #region Properties
+
         /// <summary>
         /// The new health of the player.
         /// </summary>
@@ -45,6 +53,10 @@ namespace DungeonRPG.Event
             }
         }
 
+        #endregion
+
+        #region Constructor
+
         /// <summary>
         /// Creates a new instance of this event args class.
         /// </summary>
@@ -57,15 +69,31 @@ namespace DungeonRPG.Event
             this.HealthChangeType = healthChangeType;
             this.HealthChangeDelta = healthChangeDelta;
         }
+
+        #endregion
     }
 
     /// <summary>
     /// Enum to decalre the type of health change.
     /// </summary>
+    /// <remarks>
+    /// Copyright (c) 2018 by Johannes Berndorfer (berndoJ)
+    /// </remarks>
     public enum EntityHealthChangedType
     {
+        /// <summary>
+        /// The entity gained health.
+        /// </summary>
         GAINED_HEALTH,
+
+        /// <summary>
+        /// The entity lost health.
+        /// </summary>
         LOST_HEALTH,
+
+        /// <summary>
+        /// The entity died.
+        /// </summary>
         DIED
     }
 }

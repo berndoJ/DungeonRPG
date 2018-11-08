@@ -8,9 +8,18 @@ using UnityEngine;
 
 namespace DungeonRPG.LevelManagement
 {
+    /// <summary>
+    /// A data structure which holds information (serializable) about the player to save. (Used in saving
+    /// the current game)
+    /// </summary>
+    /// <remarks>
+    /// Copyright (c) 2018 by Johannes Berndorfer (berndoJ)
+    /// </remarks>
     [Serializable]
     public struct SerializedPlayer
     {
+        #region Fields
+
         /// <summary>
         /// The position of the player.
         /// </summary>
@@ -41,6 +50,10 @@ namespace DungeonRPG.LevelManagement
         /// </summary>
         public string PlayerInventorySer;
 
+        #endregion
+
+        #region Constructor
+
         /// <summary>
         /// Creates a new value of this struct.
         /// </summary>
@@ -60,6 +73,10 @@ namespace DungeonRPG.LevelManagement
             this.PlayerInventorySer = playerInventory.GetSerialized();
         }
 
+        #endregion
+
+        #region Methods
+
         /// <summary>
         /// Applies all values of this struct to a player object.
         /// </summary>
@@ -74,6 +91,10 @@ namespace DungeonRPG.LevelManagement
             player.PlayerInventory.LoadFromSerialized(this.PlayerInventorySer);
         }
 
+        #endregion
+
+        #region Static Methods
+
         /// <summary>
         /// Creates a new value of this struct by the given player.
         /// </summary>
@@ -83,5 +104,7 @@ namespace DungeonRPG.LevelManagement
         {
             return new SerializedPlayer(p.transform.position, p.Health, p.GodMode, p.PlayerName, p.Energy, p.PlayerInventory);
         }
+
+        #endregion
     }
 }

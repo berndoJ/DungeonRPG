@@ -6,6 +6,13 @@ using UnityEngine;
 
 namespace DungeonRPG.CommandEnvironment.Commands
 {
+    /// <summary>
+    /// Game Command:
+    /// Displays help for all commands / lists all available commands.
+    /// </summary>
+    /// <remarks>
+    /// Copyright (c) 2018 by Johannes Berndorfer (berndoJ)
+    /// </remarks>
     public class GameCommandHelp : IGameCommand
     {
         /// <summary>

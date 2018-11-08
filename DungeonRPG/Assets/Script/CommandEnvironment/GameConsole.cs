@@ -10,6 +10,15 @@ using DungeonRPG.InputUtils;
 
 namespace DungeonRPG.CommandEnvironment
 {
+    /// <summary>
+    /// The main behavior class attached to a game object construction which
+    /// results in an ingame console. This class is also the main class of the
+    /// ingame console. At any given time, only one console object (instance)
+    /// of this class shall exist.
+    /// </summary>
+    /// <remarks>
+    /// Copyright (c) 2018 by Johannes Berndorfer (berndoJ)
+    /// </remarks>
     public class GameConsole : MonoBehaviour
     {
         #region Public Fields

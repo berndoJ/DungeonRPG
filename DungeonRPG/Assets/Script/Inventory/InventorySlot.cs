@@ -9,6 +9,12 @@ using UnityEngine;
 
 namespace DungeonRPG.ItemContainer
 {
+    /// <summary>
+    /// Class which represents one slot in an inventory.
+    /// </summary>
+    /// <remarks>
+    /// Copyright (c) 2018 by Johannes Berndorfer (berndoJ)
+    /// </remarks>
     public class InventorySlot
     {
         #region Properties
@@ -54,7 +60,7 @@ namespace DungeonRPG.ItemContainer
 
         #endregion
 
-        #region Private Members
+        #region Fields
 
         /// <summary>
         /// The parent inventory of this slot.

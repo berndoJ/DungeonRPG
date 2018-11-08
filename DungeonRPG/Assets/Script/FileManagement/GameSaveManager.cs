@@ -12,6 +12,13 @@ using DungeonRPG.LevelManagement;
 
 namespace DungeonRPG.FileManagement
 {
+    /// <summary>
+    /// A static game management class which contains helper and management
+    /// functions used to save and load a game save.
+    /// </summary>
+    /// <remarks>
+    /// Coypright (c) 2018 by Johannes Berndorfer (berndoJ)
+    /// </remarks>
     public static class GameSaveManager
     {
         #region Constants
@@ -41,6 +48,8 @@ namespace DungeonRPG.FileManagement
         private static bool SaveGameOnSceneChange = false;
 
         #endregion
+
+        #region Static Methods
 
         /// <summary>
         /// Saves a given save game info with the given save UID.
@@ -163,6 +172,8 @@ namespace DungeonRPG.FileManagement
             return new GameSaveInfo(currentSceneUID, scenePlayerSer);
         }
 
+        #endregion
+
         #region Static Constructor
 
         /// <summary>
@@ -175,7 +186,7 @@ namespace DungeonRPG.FileManagement
 
         #endregion
 
-        #region Event Delegates
+        #region Static Event Delegates
 
         /// <summary>
         /// Gets triggered when the active scene got changed.

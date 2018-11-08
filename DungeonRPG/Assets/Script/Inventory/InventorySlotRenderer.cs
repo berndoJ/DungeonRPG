@@ -9,8 +9,17 @@ using UnityEngine.UI;
 
 namespace DungeonRPG.ItemContainer
 {
+    /// <summary>
+    /// Behavior class which is responsible for the abstract GUI rendering of an
+    /// inventory slot.
+    /// </summary>
+    /// <remarks>
+    /// Copyright (c) 2018 by Johannes Berndorfer (berndoJ)
+    /// </remarks>
     public class InventorySlotRenderer : MonoBehaviour
     {
+        #region Fields
+
         /// <summary>
         /// The image object that displays the item's icon.
         /// </summary>
@@ -35,6 +44,10 @@ namespace DungeonRPG.ItemContainer
         [NonSerialized]
         public int CorrespondingInventorySlotID;
 
+        #endregion
+
+        #region Methods
+
         /// <summary>
         /// Renders a new inventory slot.
         /// </summary>
@@ -57,5 +70,7 @@ namespace DungeonRPG.ItemContainer
                 this.ItemDisplayNameText.enabled = false;
             }
         }
+
+        #endregion
     }
 }

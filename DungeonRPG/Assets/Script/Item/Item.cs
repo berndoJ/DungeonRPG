@@ -9,11 +9,16 @@ using UnityEngine;
 namespace DungeonRPG.Items
 {
     /// <summary>
-    /// Item base class.
+    /// This is the base class for all items.
     /// </summary>
+    /// <remarks>
+    /// Copyright (c) 2018 by Johannes Berndorfer (berndoJ)
+    /// </remarks>
     [CreateAssetMenu(fileName = "New Item", menuName = "Inventory/Item")]
     public class Item : ScriptableObject
     {
+        #region Fields
+
         /// <summary>
         /// The display name of the item.
         /// Default: "New Item"
@@ -57,6 +62,8 @@ namespace DungeonRPG.Items
         [Header("Item Entity Prefab")]
         private GameObject mItemEntityPrefab;
 
+        #endregion
+
         #region ScriptableObject Methods
 
         /// <summary>
@@ -72,6 +79,8 @@ namespace DungeonRPG.Items
         }
 
         #endregion
+
+        #region Methods
 
         /// <summary>
         /// Retrieves the display name of this item.
@@ -132,6 +141,8 @@ namespace DungeonRPG.Items
             else
                 itemEntity.ItemCount = itemCount;
         }
+
+        #endregion
 
         #region Override Methods
 

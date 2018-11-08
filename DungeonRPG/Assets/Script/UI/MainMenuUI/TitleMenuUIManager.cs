@@ -8,6 +8,12 @@ using UnityEngine.SceneManagement;
 
 namespace DungeonRPG.UI.MainMenu
 {
+    /// <summary>
+    /// Behvaior class which manages the TitleMenu GUI.
+    /// </summary>
+    /// <remarks>
+    /// Copyright (c) 2018 by Johannes Berndorfer (berndoJ)
+    /// </remarks>
     public class TitleMenuUIManager : MonoBehaviour
     {
         #region Button Click Handlers

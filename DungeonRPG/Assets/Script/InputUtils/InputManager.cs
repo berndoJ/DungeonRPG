@@ -13,6 +13,9 @@ namespace DungeonRPG.InputUtils
     /// <summary>
     /// Enum for all classes that depend on input.
     /// </summary>
+    /// <remarks>
+    /// Copyright (c) 2018 by Johannes Berndorfer (berndoJ)
+    /// </remarks>
     public enum GameInputClass
     {
         PLAYER_AI,
@@ -24,8 +27,17 @@ namespace DungeonRPG.InputUtils
         HOTBAR_MANAGER
     }
 
+    /// <summary>
+    /// A static management class which manages the input toggling (switch on / off certain
+    /// input parts using GameInputClass enum)
+    /// </summary>
+    /// <remarks>
+    /// Copyright (c) 2018 by Johannes Berndorfer (berndoJ)
+    /// </remarks>
     public static class InputManager
     {
+        #region Static Methods
+
         /// <summary>
         /// Sets the INPUT_ENABLED state of the given class (enum type).
         /// </summary>
@@ -100,5 +112,7 @@ namespace DungeonRPG.InputUtils
                 DisableInputState(inputClass);
             }
         }
+
+        #endregion
     }
 }

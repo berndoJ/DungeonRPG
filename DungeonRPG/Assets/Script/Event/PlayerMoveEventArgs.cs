@@ -6,8 +6,16 @@ using System.Text;
 
 namespace DungeonRPG.Event
 {
+    /// <summary>
+    /// Event argument class for the PlayerMove event.
+    /// </summary>
+    /// <remarks>
+    /// Copyright (c) 2018 by Johannes Berndorfer (berndoJ)
+    /// </remarks>
     public class PlayerMoveEventArgs : EventArgs
     {
+        #region Properties
+
         /// <summary>
         /// The movement speed at the time the event was called.
         /// </summary>
@@ -17,6 +25,10 @@ namespace DungeonRPG.Event
             private set;
         }
 
+        #endregion
+
+        #region Constructor
+
         /// <summary>
         /// Creates a new instance of this class.
         /// </summary>
@@ -25,5 +37,7 @@ namespace DungeonRPG.Event
         {
             this.CurrentMovementSpeed = currentMovementSpeed;
         }
+
+        #endregion
     }
 }

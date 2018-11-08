@@ -5,12 +5,24 @@ using UnityEngine.UI;
 
 namespace DungeonRPG.UI
 {
+    /// <summary>
+    /// Behavior class which controls the FPS counter text.
+    /// </summary>
+    /// <remarks>
+    /// Copyright (c) 2018 by Johannes Berndorfer (berndoJ)
+    /// </remarks>
     public class FPSCounter : MonoBehaviour
     {
+        #region Static Fields
+
         /// <summary>
         /// Input enable / disable value.
         /// </summary>
         public static bool INPUT_ENABLED = true;
+
+        #endregion
+
+        #region Fields
 
         /// <summary>
         /// The label the text should be displayed to.
@@ -21,6 +33,10 @@ namespace DungeonRPG.UI
         /// Enable bool for enabling the display of the text.
         /// </summary>
         public bool Enabled;
+
+        #endregion
+
+        #region Behavior Methods
 
         /// <summary>
         /// Init of this code.
@@ -43,6 +59,10 @@ namespace DungeonRPG.UI
             }
         }
 
+        #endregion
+
+        #region Methods
+
         /// <summary>
         /// Coroutine for displaying the fps on screen
         /// </summary>
@@ -58,5 +78,7 @@ namespace DungeonRPG.UI
                 yield return new WaitForSeconds(0.5F);
             }
         }
+
+        #endregion
     }
 }

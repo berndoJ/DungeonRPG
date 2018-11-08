@@ -8,8 +8,17 @@ using DungeonRPG.Event;
 
 namespace DungeonRPG.ItemContainer
 {
+    /// <summary>
+    /// Behavior and management class which controlls and manages the abstract GUI
+    /// rendering.
+    /// </summary>
+    /// <remarks>
+    /// Copyright (c) 2018 by Johannes Berndorfer (berndoJ)
+    /// </remarks>
     public class InventoryGUIManager : MonoBehaviour
     {
+        #region Fields
+
         /// <summary>
         /// The inventory to render.
         /// </summary>
@@ -28,6 +37,8 @@ namespace DungeonRPG.ItemContainer
         /// </summary>
         [Tooltip("An id offset to the given inventory.")]
         public int IDOffset = 0;
+
+        #endregion
 
         #region Behavior Methods
 

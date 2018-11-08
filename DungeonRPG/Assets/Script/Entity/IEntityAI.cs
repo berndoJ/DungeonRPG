@@ -5,8 +5,11 @@ using UnityEngine;
 namespace DungeonRPG.Entities
 {
     /// <summary>
-    /// Entity AI base class
+    /// Entity AI base interface which every entity AI must implement.
     /// </summary>
+    /// <remarks>
+    /// Copyright (c) 2018 by Johannes Berndorfer (berndoJ)
+    /// </remarks>
     public interface IEntityAI
     {
         /// <summary>

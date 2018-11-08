@@ -7,8 +7,17 @@ using UnityEngine;
 
 namespace DungeonRPG.Items
 {
+    /// <summary>
+    /// A class that represents a collection of same items. (One item, many counts of it: A stack)
+    /// The maximum count of items one stack can hold is defined by the item's max stack size.
+    /// </summary>
+    /// <remarks>
+    /// Copyright (c) 2018 by Johannes Berndorfer (berndoJ)
+    /// </remarks>
     public class ItemStack
     {
+        #region Properties
+
         /// <summary>
         /// The count of items this itemstack currently holds.
         /// </summary>
@@ -37,6 +46,8 @@ namespace DungeonRPG.Items
             private set;
         }
 
+        #endregion
+
         #region Events
 
         /// <summary>
@@ -45,6 +56,8 @@ namespace DungeonRPG.Items
         public event EventHandler<ItemCountChangedEventArgs> OnItemCountChanged;
 
         #endregion
+
+        #region Constructor
 
         /// <summary>
         /// Creates a new instance of this class.
@@ -67,6 +80,10 @@ namespace DungeonRPG.Items
             this.Item = item;
         }
 
+        #endregion
+
+        #region Methods
+
         /// <summary>
         /// Creates a dropped entity of this itemstack on the given vector position.
         /// </summary>
@@ -76,8 +93,14 @@ namespace DungeonRPG.Items
             this.Item.CreateEntity(this.ItemCount, position);
         }
 
+        #endregion
+
         #region Override Methods
 
+        /// <summary>
+        /// Converts the object given to a string.
+        /// </summary>
+        /// <returns>The string representation of the object.</returns>
         public override string ToString()
         {
             if (this.Item == null) return "null";
@@ -87,7 +110,7 @@ namespace DungeonRPG.Items
 
         #endregion
 
-        #region Static
+        #region Static Methods
 
         /// <summary>
         /// Swaps two itemstacks.

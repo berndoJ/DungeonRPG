@@ -8,12 +8,24 @@ using DungeonRPG.InputUtils;
 
 namespace DungeonRPG.UI
 {
+    /// <summary>
+    /// Behavior class which controls the opening and closing of the inventory (GUI and logic)
+    /// </summary>
+    /// <remarks>
+    /// Copyright (c) 2018 by Johannes Berndorfer (berndoJ)
+    /// </remarks>
     public class InventoryToggle : MonoBehaviour
     {
+        #region Static Fields
+
         /// <summary>
         /// Input enable / disable value.
         /// </summary>
         public static bool INPUT_ENABLED = true;
+
+        #endregion
+
+        #region Fields
 
         /// <summary>
         /// The inventory object to toggle.
@@ -21,6 +33,8 @@ namespace DungeonRPG.UI
         [Header("Inventory Elements")]
         [Tooltip("The inventory object to toggle.")]
         public GameObject InventoryOpenObj;
+
+        #endregion
 
         #region Behavior Methods
 

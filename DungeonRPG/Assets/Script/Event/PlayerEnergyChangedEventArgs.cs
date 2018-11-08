@@ -3,11 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-
 namespace DungeonRPG.Event
 {
+    /// <summary>
+    /// Event argument class for the PlayerEnergyChanged event.
+    /// </summary>
+    /// <remarks>
+    /// Copyright (c) 2018 by Johannes Berndorfer (berndoJ)
+    /// </remarks>
     public class PlayerEnergyChangedEventArgs : EventArgs
     {
+        #region Properties
+
         /// <summary>
         /// The new energy of the player.
         /// </summary>
@@ -46,6 +53,10 @@ namespace DungeonRPG.Event
             }
         }
 
+        #endregion
+
+        #region Constructor
+
         /// <summary>
         /// Creates a new instance of this class.
         /// </summary>
@@ -58,14 +69,26 @@ namespace DungeonRPG.Event
             this.EnergyChangeType = energyChangeType;
             this.EnergyChangeDelta = energyChangeDelta;
         }
+
+        #endregion
     }
 
     /// <summary>
     /// Enum to declare the type of energy change.
     /// </summary>
+    /// <remarks>
+    /// Coypright (c) 2018 by Johannes Berndorfer (berndoJ)
+    /// </remarks>
     public enum PlayerEnergyChangedType
     {
+        /// <summary>
+        /// The player gained energy.
+        /// </summary>
         GAINED_ENERGY,
+
+        /// <summary>
+        /// The player lost energy.
+        /// </summary>
         LOST_ENERGY
     }
 }

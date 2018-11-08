@@ -6,6 +6,13 @@ using UnityEngine;
 
 namespace DungeonRPG.CommandEnvironment.Commands
 {
+    /// <summary>
+    /// Game Command:
+    /// Clears the console.
+    /// </summary>
+    /// <remarks>
+    /// Copyright (c) 2018 by Johannes Berndorfer (berndoJ)
+    /// </remarks>
     public class GameCommandClear : IGameCommand
     {
         /// <summary>

@@ -7,6 +7,13 @@ using UnityEngine;
 
 namespace DungeonRPG.CommandEnvironment
 {
+    /// <summary>
+    /// Game Command:
+    /// Sets the health of the player.
+    /// </summary>
+    /// <remarks>
+    /// Copyright (c) 2018 by Johannes Berndorfer (berndoJ)
+    /// </remarks>
     public class GameCommandSetHealth : IGameCommand
     {
         /// <summary>

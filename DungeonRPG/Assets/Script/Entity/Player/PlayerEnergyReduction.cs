@@ -8,8 +8,16 @@ using DungeonRPG.Event;
 
 namespace DungeonRPG.Entities
 {
+    /// <summary>
+    /// Behavior class handling the energy reduction when the player moves.
+    /// </summary>
+    /// <remarks>
+    /// Copyright (c) 2018 by Johannes Berndorfer (berndoJ)
+    /// </remarks>
     public class PlayerEnergyReduction : MonoBehaviour
     {
+        #region Fields
+
         /// <summary>
         /// The player.
         /// </summary>
@@ -51,6 +59,8 @@ namespace DungeonRPG.Entities
         [Tooltip("The threshold below which the player cannot jump anymore.")]
         public float NoJumpEnergyThreshold = 15F;
 
+        #endregion
+
         #region Properties
 
         /// <summary>
@@ -63,6 +73,8 @@ namespace DungeonRPG.Entities
         }
 
         #endregion
+
+        #region Behavior Methods
 
         /// <summary>
         /// Init of this code.
@@ -101,11 +113,15 @@ namespace DungeonRPG.Entities
             }
         }
 
+        #endregion
+
+        #region Event Delegates
+
         /// <summary>
         /// Event delegate for <see cref="PlayerAI.OnPlayerMove"/>
         /// </summary>
-        /// <param name="sender">The sender of the event.</param>
-        /// <param name="e">The event arguments.</param>
+        /// <param name="sender">-</param>
+        /// <param name="e">-</param>
         private void OnPlayerMove(object sender, PlayerMoveEventArgs e)
         {
             this.Player.Energy -= this.MovementEnergyLoss * Mathf.Abs(e.CurrentMovementSpeed);
@@ -114,11 +130,13 @@ namespace DungeonRPG.Entities
         /// <summary>
         /// Event delegate for <see cref="PlayerAI.OnPlayerJump"/>
         /// </summary>
-        /// <param name="sender">The sender of the event.</param>
-        /// <param name="e">The event arguments.</param>
+        /// <param name="sender">-</param>
+        /// <param name="e">-</param>
         private void OnPlayerJump(object sender, PlayerJumpEventArgs e)
         {
             this.Player.Energy -= this.JumpEnergyLoss;
         }
+
+        #endregion
     }
 }
