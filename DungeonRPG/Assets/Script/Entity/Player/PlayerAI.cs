@@ -111,6 +111,12 @@ namespace DungeonRPG.Entities
         [Tooltip("The rigidbody of the entity.")]
         public Rigidbody2D EntityRigidbody;
 
+        /// <summary>
+        /// The default gravity scale of the player's rigidbody.
+        /// </summary>
+        [Tooltip("The default gravity scale of the player's rigidbody.")]
+        public float DefaultGravityScale;
+
         #endregion
 
         #region Events
@@ -124,6 +130,11 @@ namespace DungeonRPG.Entities
         /// Gets invoked when the player moves.
         /// </summary>
         public event EventHandler<PlayerMoveEventArgs> OnPlayerMove;
+
+        /// <summary>
+        /// Gets invoked when the player flies.
+        /// </summary>
+        public event EventHandler<PlayerFlyEventArgs> OnPlayerFly;
 
         /// <summary>
         /// Gets invoked when the player lands on ground.
@@ -197,6 +208,29 @@ namespace DungeonRPG.Entities
             protected set;
         }
 
+        /// <summary>
+        /// Fly mode flag of the player. If true, the player is in fly mode.
+        /// </summary>
+        public bool FlyMode
+        {
+            get
+            {
+                return this.mFlyMode;
+            }
+            set
+            {
+                if (value)
+                {
+                    this.EntityRigidbody.gravityScale = 0;
+                }
+                else
+                {
+                    this.EntityRigidbody.gravityScale = this.DefaultGravityScale;
+                }
+                this.mFlyMode = value;
+            }
+        }
+
         #endregion
 
         #region Members
@@ -205,6 +239,11 @@ namespace DungeonRPG.Entities
         /// The input for horizontal movement.
         /// </summary>
         private float mInputHorizontalMovement;
+
+        /// <summary>
+        /// The input for vertical movement.
+        /// </summary>
+        private float mInputVerticalMovement;
 
         /// <summary>
         /// The input for jump button.
@@ -216,6 +255,11 @@ namespace DungeonRPG.Entities
         /// Used to smoothen the movement of the player.
         /// </summary>
         private Vector3 mCurrentPlayerVelocity = Vector3.zero;
+
+        /// <summary>
+        /// Private member for property <see cref="FlyMode"/>
+        /// </summary>
+        private bool mFlyMode;
 
         #endregion
 
@@ -231,6 +275,7 @@ namespace DungeonRPG.Entities
             this.CanMove = true;
             this.JumpForceCoefficient = 1F;
             this.CanJump = true;
+            this.EntityRigidbody.gravityScale = this.DefaultGravityScale;
             // Register all event delegates.
             this.OnPlayerJump += this.OnPlayerJumpInvoke;
             this.OnPlayerLand += this.OnPlayerLandInvoke;
@@ -271,8 +316,10 @@ namespace DungeonRPG.Entities
             {
                 // Update horizontal movement
                 this.mInputHorizontalMovement = Input.GetAxisRaw("Horizontal");
+                // Update vertical movement
+                this.mInputVerticalMovement = Input.GetAxisRaw("Vertical");
                 // Update jump
-                if (Input.GetButtonDown("Jump"))
+                if (Input.GetButtonDown("Jump") && !this.FlyMode)
                     this.mInputButtonJump = true;
             }
             else
@@ -287,7 +334,7 @@ namespace DungeonRPG.Entities
         /// </summary>
         private void UpdatePlayerPhysics()
         {
-            if (this.CanMove)
+            if (this.CanMove && !this.FlyMode)
             {
                 // Calculate the horizontal movement of the player.
                 float xMovement = this.mInputHorizontalMovement;
@@ -305,6 +352,27 @@ namespace DungeonRPG.Entities
                 // Invoke OnPlayerMove.
                 if (this.OnPlayerMove != null)
                     this.OnPlayerMove(this, new PlayerMoveEventArgs(xMovement));
+            }
+            // Update movements for fly mode.
+            if (this.FlyMode)
+            {
+                float xMovement = this.mInputHorizontalMovement;
+                float yMovement = this.mInputVerticalMovement;
+                xMovement *= (this.MovementSpeed * this.MovementSpeedCoefficient * Time.deltaTime) * 30;
+                yMovement *= (this.MovementSpeed * this.MovementSpeedCoefficient * Time.deltaTime) * 30;
+                // Apply movement speed to the rigidbody of the player.
+                this.EntityRigidbody.velocity = new Vector2(xMovement, yMovement);
+                // Flip the player if necessary.
+                if (xMovement > 0 && this.LookingDirection == EntityLookingDirection.NEGATIVE_X)
+                    this.FlipEntityLookingDirection();
+                else if (xMovement < 0 && this.LookingDirection == EntityLookingDirection.POSITIVE_X)
+                    this.FlipEntityLookingDirection();
+                // Invoke OnPlayerMove
+                if (this.OnPlayerMove != null)
+                    this.OnPlayerMove(this, new PlayerMoveEventArgs(xMovement));
+                // Invoke OnPlayerFly
+                if (this.OnPlayerFly != null)
+                    this.OnPlayerFly(this, new PlayerFlyEventArgs(xMovement, yMovement));
             }
             // Check if the player jumps.
             if (this.CanJump && this.IsOnGround && this.mInputButtonJump)
