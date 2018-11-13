@@ -124,6 +124,7 @@ namespace DungeonRPG.Entities
         /// <param name="e">-</param>
         private void OnPlayerMove(object sender, PlayerMoveEventArgs e)
         {
+            if (this.Player.AI.FlyMode) return;
             this.Player.Energy -= this.MovementEnergyLoss * Mathf.Abs(e.CurrentMovementSpeed);
         }
 
@@ -134,6 +135,7 @@ namespace DungeonRPG.Entities
         /// <param name="e">-</param>
         private void OnPlayerJump(object sender, PlayerJumpEventArgs e)
         {
+            if (this.Player.AI.FlyMode) return;
             this.Player.Energy -= this.JumpEnergyLoss;
         }
 

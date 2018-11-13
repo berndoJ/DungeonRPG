@@ -289,6 +289,8 @@ namespace DungeonRPG.Entities
         {
             // Update the player's physics and movement.
             this.UpdatePlayerPhysics();
+            // Update the IsOnGround property.
+            this.UpdateIsOnGround();
         }
 
         /// <summary>
@@ -298,8 +300,6 @@ namespace DungeonRPG.Entities
         {
             // Update the input fields.
             this.UpdateInputFields();
-            // Update the IsOnGround property.
-            this.UpdateIsOnGround();
         }
 
         #endregion
@@ -322,7 +322,7 @@ namespace DungeonRPG.Entities
                 if (Input.GetButtonDown("Jump") && !this.FlyMode)
                     this.mInputButtonJump = true;
             }
-            else
+            else if (this.mInputHorizontalMovement != 0)
             {
                 this.mInputHorizontalMovement = 0F;
             }

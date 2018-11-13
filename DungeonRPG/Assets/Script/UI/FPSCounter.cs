@@ -44,7 +44,7 @@ namespace DungeonRPG.UI
         private void Start()
         {
             this.FPSCounterLabel.enabled = false; // Default value is false : the FPS counter is not shown.
-            this.StartCoroutine("UpdateFPSCounter");
+            //this.StartCoroutine("UpdateFPSCounter");
         }
 
         /// <summary>
@@ -56,6 +56,17 @@ namespace DungeonRPG.UI
             if (INPUT_ENABLED && Input.GetButtonDown("FPS Toggle"))
             {
                 this.FPSCounterLabel.enabled = !this.FPSCounterLabel.enabled;
+            }
+        }
+
+        /// <summary>
+        /// Gets invoked when the gui is drawn.
+        /// </summary>
+        private void OnGUI()
+        {
+            if (this.FPSCounterLabel.enabled)
+            {
+                this.FPSCounterLabel.text = string.Format("{0:0.0} FPS", 1 / Time.deltaTime);
             }
         }
 

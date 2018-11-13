@@ -46,7 +46,7 @@ namespace DungeonRPG.WorldFeature
                     tileLight.type = LightType.Point;
                     tileLight.range = 5F;
                     tileLight.color = new Color(231F / 255, 191F / 255, 74F / 255);
-                    tileLight.renderMode = LightRenderMode.ForcePixel;
+                    tileLight.renderMode = LightRenderMode.Auto;
                     tileLight.intensity = 4F;
                     tileLight.transform.position = this.LightSourceTilemap.CellToWorld(tilePos) + new Vector3(0.5F, 0.5F, -0.6F);
                 }
