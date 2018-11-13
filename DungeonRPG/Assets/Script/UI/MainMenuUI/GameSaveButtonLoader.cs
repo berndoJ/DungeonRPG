@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
+using DungeonRPG.FileManagement;
 
 namespace DungeonRPG.UI.MainMenu
 {
@@ -33,6 +35,53 @@ namespace DungeonRPG.UI.MainMenu
         /// </summary>
         public Text SaveTimeCreatedText;
 
+        /// <summary>
+        /// The private field for the <see cref="LevelUID"/> property.
+        /// </summary>
+        private string mLevelUID;
+
+        #endregion
+
+        #region Properties
+
+        /// <summary>
+        /// The level's uid string which this button corresponds to.
+        /// This string should be set when creating the button.
+        /// Setting the text updates the button automatically from the saves.
+        /// </summary>
+        public string LevelUID
+        {
+            get
+            {
+                return this.mLevelUID;
+            }
+            set
+            {
+                // Get the file path
+                string saveFilePath = GameSaveManager.SaveFolderPath + "/" + value + ".sda";
+                // Check for existance
+                if (!File.Exists(saveFilePath))
+                    return;
+                try
+                {
+                    // Get the file info and update the dates.
+                    FileInfo saveFileInfo = new FileInfo(GameSaveManager.SaveFolderPath + "/" + value + ".sda");
+                    this.SaveTimeCreatedText.text = "Created: " + saveFileInfo.CreationTime.ToShortDateString();
+                    this.SaveTimeLastModifiedText.text = "Last accessed: " + saveFileInfo.LastAccessTime.ToShortDateString();
+                    // Update the title.
+                    this.SaveTitleText.text = value;
+                }
+                catch (Exception e)
+                {
+                    Debug.Log("Error while loading FileInfo of save " + saveFilePath + ". Exception: " + e.Message);
+                    this.SaveTimeCreatedText.text = "Created: -";
+                    this.SaveTimeLastModifiedText.text = "Last accessed: -";
+                }
+                // Update the private field
+                this.mLevelUID = value;
+            }
+        }
+
         #endregion
 
         #region Methods
@@ -42,7 +91,7 @@ namespace DungeonRPG.UI.MainMenu
         /// </summary>
         public void LoadButtonClick()
         {
-
+            GameSaveManager.LoadGame(this.LevelUID);
         }
 
         #endregion

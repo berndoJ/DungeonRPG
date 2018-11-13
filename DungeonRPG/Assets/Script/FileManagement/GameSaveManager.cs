@@ -28,6 +28,11 @@ namespace DungeonRPG.FileManagement
         /// </summary>
         public static readonly string InitialLevelId = "Level0";
 
+        /// <summary>
+        /// The default path to save the games in.
+        /// </summary>
+        public static readonly string SaveFolderPath = Application.persistentDataPath + "/dat/sda";
+
         #endregion
 
         #region Static Fields
@@ -57,11 +62,10 @@ namespace DungeonRPG.FileManagement
         /// <param name="saveUID">The save UID to save the save as.</param>
         /// <param name="gameSaveInfo">The game save info.</param>
         public static void SaveGameInfo(string saveUID, GameSaveInfo gameSaveInfo)
-        {
-            string saveFolderPath = Application.persistentDataPath + "/dat/sda";
-            Directory.CreateDirectory(saveFolderPath);
+        {;
+            Directory.CreateDirectory(SaveFolderPath);
             BinaryFormatter binFormatter = new BinaryFormatter();
-            using (FileStream saveFs = new FileStream(Application.persistentDataPath + "/dat/sda/" + saveUID + ".sda", FileMode.Create))
+            using (FileStream saveFs = new FileStream(SaveFolderPath + "/" + saveUID + ".sda", FileMode.Create))
             {
                 binFormatter.Serialize(saveFs, gameSaveInfo);
             }
@@ -74,7 +78,7 @@ namespace DungeonRPG.FileManagement
         /// <returns>The game save.</returns>
         public static GameSaveInfo LoadGameInfo(string saveUID)
         {
-            string savePath = Application.persistentDataPath + "/dat/sda/" + saveUID + ".sda";
+            string savePath = SaveFolderPath + "/" + saveUID + ".sda";
             if (!File.Exists(savePath))
             {
                 Debug.LogError("Error while loading '" + savePath + "': File does not exist.");
@@ -95,7 +99,7 @@ namespace DungeonRPG.FileManagement
         /// <returns>All available save UIDs</returns>
         public static List<string> GetAllSaveUIDs()
         {
-            string saveFolderPath = Application.persistentDataPath + "/dat/sda";
+            string saveFolderPath = SaveFolderPath;
             if (!Directory.Exists(saveFolderPath))
             {
                 return new List<string>();
