@@ -8,11 +8,7 @@ E:\Coding\Unity Games\DungeonRPG\DungeonRPG\Temp\bin\Debug\System.Runtime.Serial
 E:\Coding\Unity Games\DungeonRPG\DungeonRPG\Temp\bin\Debug\System.Xml.dll
 E:\Coding\Unity Games\DungeonRPG\DungeonRPG\Temp\bin\Debug\System.Xml.Linq.dll
 E:\Coding\Unity Games\DungeonRPG\DungeonRPG\Temp\bin\Debug\Unity.Locator.dll
-E:\Coding\Unity Games\DungeonRPG\DungeonRPG\Temp\bin\Debug\Unity.PackageManagerUI.Editor.dll
-E:\Coding\Unity Games\DungeonRPG\DungeonRPG\Temp\bin\Debug\Unity.TextMeshPro.dll
-E:\Coding\Unity Games\DungeonRPG\DungeonRPG\Temp\bin\Debug\Unity.TextMeshPro.Editor.dll
 E:\Coding\Unity Games\DungeonRPG\DungeonRPG\Temp\bin\Debug\UnityEditor.dll
-E:\Coding\Unity Games\DungeonRPG\DungeonRPG\Temp\bin\Debug\UnityEditor.StandardEvents.dll
 E:\Coding\Unity Games\DungeonRPG\DungeonRPG\Temp\bin\Debug\UnityEngine.AccessibilityModule.dll
 E:\Coding\Unity Games\DungeonRPG\DungeonRPG\Temp\bin\Debug\UnityEngine.AIModule.dll
 E:\Coding\Unity Games\DungeonRPG\DungeonRPG\Temp\bin\Debug\UnityEngine.Analytics.dll
