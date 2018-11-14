@@ -41,12 +41,7 @@ namespace DungeonRPG.FileManagement
         /// The uid of the current game
         /// </summary>
         public static string CurrentGameUID;
-
-        /// <summary>
-        /// The save info to load on scene change.
-        /// </summary>
-        private static GameSaveInfo GameSaveInfoToLoadOnSceneChange = null;
-
+        
         /// <summary>
         /// Value indicating if the game should be saved on the next scene change.
         /// </summary>
@@ -143,8 +138,7 @@ namespace DungeonRPG.FileManagement
         public static void LoadGame(string saveUID)
         {
             CurrentGameUID = saveUID;
-            GameSaveInfoToLoadOnSceneChange = LoadGameInfo(saveUID);
-            SceneManager.LoadScene(GameSaveInfoToLoadOnSceneChange.CurrentLevelUID);
+            LevelManager.LoadSavedLevel(LoadGameInfo(saveUID));
         }
 
         /// <summary>
@@ -155,7 +149,7 @@ namespace DungeonRPG.FileManagement
         {
             CurrentGameUID = newSaveUID;
             SaveGameOnSceneChange = true;
-            SceneManager.LoadScene(InitialLevelId);
+            LevelManager.LoadLevel(0); // Load the first level.
         }
 
         /// <summary>
@@ -164,7 +158,11 @@ namespace DungeonRPG.FileManagement
         /// <returns>The game save info.</returns>
         public static GameSaveInfo GetGameSaveInfoFromCurrent()
         {
-            string currentSceneUID = SceneManager.GetActiveScene().name;
+            GameObject levelInfoObj = GameObject.FindGameObjectWithTag("LevelGameInfoObj");
+            if (levelInfoObj == null)
+                return null;
+            LevelGameInfoObjContent lgiObj = levelInfoObj.GetComponent<LevelGameInfoObjContent>();
+            string currentLevelUID = lgiObj.LevelSceneName;
             //List<Entity> sceneEntities = GameObject.FindGameObjectsWithTag("Entity").Where(go => go.GetComponent<Entity>() != null).Select(go => go.GetComponent<Entity>()).ToList();
             Player scenePlayer = GameObject.FindGameObjectsWithTag("Player").Where(go => go.GetComponent<Player>() != null).Select(go => go.GetComponent<Player>()).FirstOrDefault();
             if (scenePlayer == null)
@@ -173,7 +171,7 @@ namespace DungeonRPG.FileManagement
                 return null;
             }
             SerializedPlayer scenePlayerSer = SerializedPlayer.NewFromPlayer(scenePlayer);
-            return new GameSaveInfo(currentSceneUID, scenePlayerSer);
+            return new GameSaveInfo(currentLevelUID, scenePlayerSer);
         }
 
         #endregion
@@ -199,16 +197,6 @@ namespace DungeonRPG.FileManagement
         /// <param name="newScene">The new scene.</param>
         private static void OnActiveSceneChanged(Scene oldScene, Scene newScene)
         {
-            if (GameSaveInfoToLoadOnSceneChange != null)
-            {
-                if (newScene.name == GameSaveInfoToLoadOnSceneChange.CurrentLevelUID) // Check if the info to be loaded belongs to the newly loaded scene.
-                {
-                    // Load all scene parts.
-                    Player scenePlayer = GameObject.FindGameObjectsWithTag("Player").Where(go => go.GetComponent<Player>() != null).Select(go => go.GetComponent<Player>()).FirstOrDefault();
-                    GameSaveInfoToLoadOnSceneChange.Player.ApplyToPlayer(ref scenePlayer);
-                    GameSaveInfoToLoadOnSceneChange = null;
-                }
-            }
             if (SaveGameOnSceneChange)
             {
                 SaveCurrentGame();
